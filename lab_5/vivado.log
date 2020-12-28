@@ -24,3 +24,4 @@ WARNING: [IP_Flow 19-2162] IP 'data_mem' is locked:
 open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 948.367 ; gain = 71.891
 update_compile_order -fileset sources_1
 update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
