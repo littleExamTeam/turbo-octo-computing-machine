@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`include "defines.vh"
 module aludec(
     input wire [5:0] Op,
     input wire [5:0] Funct,

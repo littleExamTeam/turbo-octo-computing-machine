@@ -166,3 +166,8 @@ selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sourc
 selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), dp : datapath (datapath.v), alu : alu (alu.v)]", 30, false); // B (F, cl)
 selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), dp : datapath (datapath.v), alu : alu (alu.v)]", 30, false, false, false, false, false, true); // B (F, cl) - Double Click
 // Launch External Editor: 'C:/Users/Administrator/AppData/Local/Programs/Microsoft VS Code/Code.exe -g "C:/Users/Administrator/Desktop/littleExam/turbo-octo-computing-machine/lab_5/lab_5.srcs/sources_1/new/alu.v":2'
+// HMemoryUtils.trashcanNow. Engine heap size: 734 MB. GUI used memory: 63 MB. Current time: 12/28/20, 11:04:04 AM CST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
