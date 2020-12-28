@@ -22,3 +22,5 @@ WARNING: [IP_Flow 19-2162] IP 'data_mem' is locked:
 * IP 'data_mem' shares a common output directory with other IP. It is recommended that each IP be placed in its own directory.
 open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 711.789 ; gain = 86.035
 update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 28 23:58:43 2020...
