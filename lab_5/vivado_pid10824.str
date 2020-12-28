@@ -1,0 +1,161 @@
+/*
+
+Xilinx Vivado v2019.1 (64-bit) [Major: 2019, Minor: 1]
+SW Build: 2552052 on Fri May 24 14:49:42 MDT 2019
+IP Build: 2548770 on Fri May 24 18:01:18 MDT 2019
+
+Process ID (PID): 10824
+License: Customer
+
+Current time: 	Mon Dec 28 15:12:52 GMT+08:00 2020
+Time zone: 	GMT+08:00 (GMT+08:00)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 8
+
+Screen size: 1920x1080
+Screen resolution (DPI): 125
+Available screens: 1
+Available disk space: 4 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=15
+
+Java version: 	9.0.4 64-bit
+Java home: 	D:/Vivado/Vivado/2019.1/tps/win64/jre9.0.4
+Java executable location: 	D:/Vivado/Vivado/2019.1/tps/win64/jre9.0.4/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	YiChao
+User home directory: C:/Users/Õıﬁ»≥¨
+User working directory: D:/Verilog/turbo-octo-computing-machine/lab_5
+User country: 	CN
+User language: 	zh
+User locale: 	zh_CN
+
+RDI_BASEROOT: D:/Vivado/Vivado
+HDI_APPROOT: D:/Vivado/Vivado/2019.1
+RDI_DATADIR: D:/Vivado/Vivado/2019.1/data
+RDI_BINDIR: D:/Vivado/Vivado/2019.1/bin
+
+Vivado preferences file location: C:/Users/Õıﬁ»≥¨/AppData/Roaming/Xilinx/Vivado/2019.1/vivado.xml
+Vivado preferences directory: C:/Users/Õıﬁ»≥¨/AppData/Roaming/Xilinx/Vivado/2019.1/
+Vivado layouts directory: C:/Users/Õıﬁ»≥¨/AppData/Roaming/Xilinx/Vivado/2019.1/layouts
+PlanAhead jar file location: 	D:/Vivado/Vivado/2019.1/lib/classes/planAhead.jar
+Vivado log file location: 	D:/Verilog/turbo-octo-computing-machine/lab_5/vivado.log
+Vivado journal file location: 	D:/Verilog/turbo-octo-computing-machine/lab_5/vivado.jou
+Engine tmp dir: 	D:/Verilog/turbo-octo-computing-machine/lab_5/.Xil/Vivado-10824-LAPTOP-GLN1OLGI
+
+Xilinx Environment Variables
+----------------------------
+ANDROID_SDK_HOME: D:\Program Files\Android\ADK
+XILINX: D:/Vivado/Vivado/2019.1/ids_lite/ISE
+XILINX_DSP: D:/Vivado/Vivado/2019.1/ids_lite/ISE
+XILINX_PLANAHEAD: D:/Vivado/Vivado/2019.1
+XILINX_VIVADO: D:/Vivado/Vivado/2019.1
+XILINX_VIVADO_HLS: D:/Vivado/Vivado/2019.1
+
+
+GUI allocated memory:	128 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 568 MB
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// CommandFailedException: ERROR: [ProjectBase 63-9] XML parser encountered a problem in D:/Verilog/turbo-octo-computing-machine/lab_5/._lab_5.xpr at line 1 : XML character encoding not supported 
+/*
+#--------------------------------------------------------------------------
+# Xilinx Vivado v2019.1 (64-bit)
+# SW Build: 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build: 2548770 on Fri May 24 18:01:18 MDT 2019
+# Current time: Mon Dec 28 15:12:52 GMT+08:00 2020
+# Process ID (PID): 10824
+# OS: Windows 10
+# User: YiChao
+#
+# This file is an indication that an internal application error occurred.
+# This information is useful for debugging. Please open a case with Xilinx.
+# Technical Support with this file and a testcase attached.
+#--------------------------------------------------------------------------
+ui.frmwork.CommandFailedException: ERROR: [ProjectBase 63-9] XML parser encountered a problem in D:/Verilog/turbo-octo-computing-machine/lab_5/._lab_5.xpr at line 1 : XML character encoding not supported
+ (See D:/Verilog/turbo-octo-computing-machine/lab_5/vivado_pid10824.debug)
+*/
+// HOptionPane Error: 'ERROR: [ProjectBase 63-9] XML parser encountered a problem in D:/Verilog/ turbo-octo-computing-machine/lab_5/._lab_5.xpr at line 1 : XML character encoding not supported (Vivado v2019.1 (64-bit))'
+// WARNING: HEventQueue.dispatchEvent() is taking  1002 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 568 MB. GUI used memory: 46 MB. Current time: 12/28/20, 3:12:56 PM GMT+08:00
+// WARNING: HEventQueue.dispatchEvent() is taking  1002 ms.
+selectButton("OptionPane.button", "OK"); // JButton (A, G)
+selectList(PAResourceQtoS.SyntheticaGettingStartedView_RECENT_PROJECTS, "D:/Verilog/lab_5/lab_5.xpr", 0); // q (O, cl)
+// by (cl):  Open Project : addNotify
+// Opening Vivado Project: D:/Verilog/lab_5/lab_5.xpr. Version: Vivado v2019.1 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project D:/Verilog/lab_5/lab_5.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 604 MB. GUI used memory: 45 MB. Current time: 12/28/20, 3:13:11 PM GMT+08:00
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 54 MB (+54650kb) [00:00:40]
+// [Engine Memory]: 615 MB (+493459kb) [00:00:40]
+// [GUI Memory]: 76 MB (+20188kb) [00:00:41]
+// [GUI Memory]: 99 MB (+20079kb) [00:00:41]
+// [Engine Memory]: 651 MB (+5569kb) [00:00:42]
+// WARNING: HEventQueue.dispatchEvent() is taking  4019 ms.
+// Tcl Message: open_project D:/Verilog/lab_5/lab_5.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/Vivado/2019.1/data/ip'. 
+// Tcl Message: open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 686.309 ; gain = 46.242 
+// Project name: lab_5; location: D:/Verilog/lab_5; part: xc7a100tcsg324-1
+// [GUI Memory]: 108 MB (+3181kb) [00:00:44]
+// Elapsed time: 16 seconds
+dismissDialog("Open Project"); // by (cl)
+// Tcl Message: update_compile_order -fileset sources_1 
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v)]", 1); // B (F, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v)]", 2); // B (F, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), dp : datapath (datapath.v)]", 4); // B (F, cl)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), dp : datapath (datapath.v)]", 4); // B (F, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v)]", 3); // B (F, cl)
+// PAPropertyPanels.initPanels (controller.v) elapsed time: 0.2s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), main_dec : main_dec (controller.v)]", 4, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), main_dec : main_dec (controller.v)]", 4, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), main_dec : main_dec (controller.v)]", 4, false, false, false, false, false, true); // B (F, cl) - Double Click
+// [GUI Memory]: 113 MB (+517kb) [00:01:10]
+// Elapsed time: 120 seconds
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B (E, cl)
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// HMemoryUtils.trashcanNow. Engine heap size: 660 MB. GUI used memory: 54 MB. Current time: 12/28/20, 3:43:11 PM GMT+08:00
+// Elapsed time: 2067 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v)]", 3, true); // B (F, cl) - Node
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v)]", 3); // B (F, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), dp : datapath (datapath.v)]", 4); // B (F, cl)
+// HMemoryUtils.trashcanNow. Engine heap size: 660 MB. GUI used memory: 48 MB. Current time: 12/28/20, 4:13:11 PM GMT+08:00
+// Elapsed time: 1425 seconds
+selectCodeEditor("controller.v", 194, 10); // cl (w, cl)
+typeControlKey((HResource) null, "controller.v", 'c'); // cl (w, cl)
+// HMemoryUtils.trashcanNow. Engine heap size: 660 MB. GUI used memory: 49 MB. Current time: 12/28/20, 4:43:12 PM GMT+08:00
+// HMemoryUtils.trashcanNow. Engine heap size: 660 MB. GUI used memory: 48 MB. Current time: 12/28/20, 5:13:12 PM GMT+08:00

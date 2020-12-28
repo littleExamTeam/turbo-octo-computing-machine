@@ -3,44 +3,67 @@
 
 module main_dec(
     input wire [5:0] op,
-    output wire jump, regwrite, regdst, alusrc, branch, memwrite, memtoreg,
+    output wire jump, regwrite, regdst, 
+    output wire [1:0] alusrc, //这里修改成两位是为了选择操作数，0位扩展
+    output wire branch, memwrite, memtoreg,
     output wire [1:0] aluop
 );
 
-reg [6:0] signals;
+reg [7:0] signals;
 reg [1:0] aluop_reg;
 
-assign {jump, regwrite, regdst, alusrc, branch, memwrite, memtoreg} = signals;
+assign {jump, regwrite, regdst, alusrc[1:0], branch, memwrite, memtoreg} = signals;
+//logic 011 000
 assign aluop = aluop_reg;
-
+// `define EXE_NOP			6'b000000
+// `define EXE_AND 		6'b100100
+// `define EXE_OR 			6'b100101
+// `define EXE_XOR 		6'b100110
+// `define EXE_NOR			6'b100111
+// `define EXE_ANDI		6'b001100
+// `define EXE_ORI			6'b001101
+// `define EXE_XORI		6'b001110
+// `define EXE_LUI			6'b001111
 always @(op) begin
     case(op)
-        6'b000000: begin    //R-type
-        signals <= 7'b0110000;
-        aluop_reg <= 2'b10;
-    end
-        6'b100011: begin    //lw
-        signals <= 7'b0101001;
+    //     `EXE_NOP: begin    //R-type
+    //     signals <= 8'b011 000;
+    //     aluop_reg <= 2'b10;
+    // end
+        `EXE_AND: begin    //lw
+        signals <= 8'b01100000;
         aluop_reg <= 2'b00;
     end
-        6'b101011: begin    //sw
-        signals <= 7'b0001010;
+        `EXE_OR: begin    //sw
+        signals <= 8'b01100000;
         aluop_reg <= 2'b00;
     end
-        6'b000100: begin    //beq
-        signals <= 7'b0000100;
+        `EXE_XOR: begin    //beq
+        signals <= 8'b01100000;
         aluop_reg <= 2'b01;
     end
-        6'b001000: begin    //addi
-        signals <= 7'b0101000;
+        `EXE_NOR: begin    //addi
+        signals <= 8'b01100000;
         aluop_reg <= 2'b00;
     end
-        6'b000010: begin    //j
-        signals <= 7'b1000000;
+        `EXE_ANDI: begin    //j
+        signals <= 8'b01110000;
+        aluop_reg <= 2'b00;
+    end
+        `EXE_XORI: begin    //j
+        signals <= 8'b01110000;
+        aluop_reg <= 2'b00;
+    end
+        `EXE_ORI: begin    //j
+        signals <= 8'b01110000;
+        aluop_reg <= 2'b00;
+    end
+        `EXE_LUI: begin    //j
+        signals <= 8'b01110000;
         aluop_reg <= 2'b00;
     end
         default: begin
-        signals <= 7'b0000000;
+        signals <= 8'b0000000;
         aluop_reg <= 2'b00;
     end
     endcase
@@ -48,39 +71,43 @@ end
 
 endmodule
 
-module alu_dec(
-    input wire [5:0] funct,
-    input wire [1:0] op,
-    output wire [2:0] alucontrol
-);
 
-reg [2:0] alucontrol_reg;
-assign alucontrol = alucontrol_reg;
 
-always @(op, funct) begin
-    case(op)
-        2'b00: alucontrol_reg <= 3'b000;    //Add
-        2'b01: alucontrol_reg <= 3'b001;    //Sub
-        2'b10: begin
-            case(funct)
-                6'b100000: alucontrol_reg <= 3'b000;    //Add
-                6'b100010: alucontrol_reg <= 3'b001;    //Sub
-                6'b100100: alucontrol_reg <= 3'b010;    //And 
-                6'b100101: alucontrol_reg <= 3'b011;    //Or
-                6'b101010: alucontrol_reg <= 3'b101;    //Slt
-                default: alucontrol_reg <= 3'b111;
-            endcase
-        end
-        default: alucontrol_reg <= 3'b111;
-    endcase
-end
+// module alu_dec(
+//     input wire [5:0] funct,
+//     input wire [1:0] op,
+//     output wire [7:0] alucontrol
+// );
 
-endmodule
+// reg [7:0] alucontrol_reg;
+// assign alucontrol = alucontrol_reg;
+
+// always @(op, funct) begin
+//     case(op)
+//         2'b00: alucontrol_reg <= 3'b000;    //Add
+//         2'b01: alucontrol_reg <= 3'b001;    //Sub
+//         2'b10: begin
+//             case(funct)
+//                 6'b100000: alucontrol_reg <= 3'b000;    //Add
+//                 6'b100010: alucontrol_reg <= 3'b001;    //Sub
+//                 6'b100100: alucontrol_reg <= 3'b010;    //And 
+//                 6'b100101: alucontrol_reg <= 3'b011;    //Or
+//                 6'b101010: alucontrol_reg <= 3'b101;    //Slt
+//                 default: alucontrol_reg <= 3'b111;
+//             endcase
+//         end
+//         default: alucontrol_reg <= 3'b111;
+//     endcase
+// end
+
+// endmodule
 
 module controller(
     input wire [5:0] Op, Funct,
-    output wire Jump, RegWrite, RegDst, ALUSrc, Branch, MemWrite, MemtoReg,
-    output wire [2:0] ALUContr 
+    output wire Jump, RegWrite, RegDst,
+    output wire [1:0] ALUSrc, 
+    output wire Branch, MemWrite, MemtoReg,
+    output wire [7:0] ALUContr 
 );
 
 wire [1:0] aluop;
@@ -97,7 +124,7 @@ main_dec main_dec(
     .aluop(aluop)
 );
 
-alu_dec alu_dec(
+aludec aludec(
     .funct(Funct),
     .op(aluop),
     .alucontrol(ALUContr)

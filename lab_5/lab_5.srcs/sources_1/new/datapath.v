@@ -13,7 +13,7 @@ module datapath(
     input  wire MemtoRegD,
     input  wire MemWriteD,
     input  wire [2:0] ALUControlD,
-    input  wire ALUSrcD,
+    input  wire [1:0] ALUSrcD,
     input  wire RegDstD,
     input  wire JumpD,
     input  wire BranchD,
@@ -38,13 +38,16 @@ wire [31:0] PCBranchD;
 wire [31:0] PCJumpD;
 wire [31:0] SignImmD;
 wire [31:0] ExSignImmD;
+//add shift inst oprand
+//wire [31:0] SaD;
+//---------------------
 wire [27:0] ExJumpAddr;
-//¼Ä´æÆ÷×éÊä³ö
+
 wire [31:0] DataAD, DataBD;
-//µÈÓÚ±È½ÏÆ÷ÊäÈë£¬Êä³ö
+
 wire [31:0] CmpA, CmpB;
 wire [31:0] EqualD;
-//¼Ä´æÆ÷ºÅ
+
 wire  [4:0] RsD, RtD, RdD;
 
 wire [1:0] ForwardAD, ForwardBD;
@@ -55,7 +58,7 @@ wire RegWriteE;
 wire MemtoRegE;
 wire MemWriteE;
 wire [2:0] ALUControlE;
-wire ALUSrcE;
+wire [1:0] ALUSrcE;
 wire RegDstE;
 wire [1:0] PCSrcD;
 
@@ -64,6 +67,10 @@ wire [31:0] ExSignImmE;
 wire [31:0] DataAE, DataBE;
 wire [31:0] SrcAE, SrcBE, ALUOutE;
 wire [31:0] WriteDataE;
+//add shift inst oprand
+//wire [31:0] RegValue;
+//wire [31:0] SaE;
+//---------------------
 wire  [4:0] RsE, RtE, RdE;
 wire  [4:0] WriteRegE;
 
@@ -99,6 +106,9 @@ assign RsD   = InstD[25:21];
 assign RtD   = InstD[20:16];
 assign RdD   = InstD[15:11];
 assign Funct = InstD[5:0];
+//add shift inst oprand
+//assign SaD = {27'b0, InstD[10:6]};
+//---------------------
 
 assign PCSrcD[0:0] = BranchD & EqualD;
 assign PCSrcD[1:1] = JumpD;
@@ -110,23 +120,25 @@ flopenrc #(32)D2(clk, rst, ~StallD, FlushD, PCPlus4F, PCPlus4D);
 
 regfile rf(clk, RegWriteW, RsD, RtD, WriteRegW, ResultW, DataAD, DataBD);
 
-//ÅĞ¶ÏÊÇ·ñ·ÖÖ§Ìø×ª
+//ï¿½Ğ¶ï¿½ï¿½Ç·ï¿½ï¿½Ö§ï¿½ï¿½×ª
 mux2 #(32)DAmux(DataAD, ALUOutM, ForwardAD, CmpA);
 mux2 #(32)DBmux(DataBD, ALUOutM, ForwardBD, CmpB);
 eqcmp cmp(CmpA, CmpB, EqualD);
 
-//¼ÆËã·ÖÖ§Ö¸ÁîµØÖ·
+//ï¿½ï¿½ï¿½ï¿½ï¿½Ö§Ö¸ï¿½ï¿½ï¿½Ö·
 signext se(InstD[15:0], SignImmD);
+zeroext ze(InstD[15:0], ZeroImmD);
+
 sl2 #(32)sl21(SignImmD, ExSignImmD);
 adder branchadder(PCPlus4D, ExSignImmD, PCBranchD);
 
-//»ñÈ¡Ö±½ÓÌø×ªÖ¸ÁîµØÖ·
+//ï¿½ï¿½È¡Ö±ï¿½ï¿½ï¿½ï¿½×ªÖ¸ï¿½ï¿½ï¿½Ö·
 sl2 #(26)sl22(InstD[25:0], ExJumpAddr);
 assign PCJumpD = {InstD[31:28], ExJumpAddr};
 //----------------------
 
 //-----excute stage-----
-floprc  #(8)E1(clk, rst, FlushE,
+floprc  #(9)E1(clk, rst, FlushE,
     {RegWriteD,MemtoRegD,MemWriteD,ALUControlD,ALUSrcD,RegDstD},
     {RegWriteE,MemtoRegE,MemWriteE,ALUControlE,ALUSrcE,RegDstE});
 floprc #(32)E2(clk, rst, FlushE, DataAD, DataAE);
@@ -135,11 +147,19 @@ floprc  #(5)E4(clk, rst, FlushE, RsD, RsE);
 floprc  #(5)E5(clk, rst, FlushE, RtD, RtE);
 floprc  #(5)E6(clk, rst, FlushE, RdD, RdE);
 floprc #(32)E7(clk, rst, FlushE, SignImmD, SignImmE);
+floprc #(32)E8(clk, rst, FlushE, ZeroImmD, ZeroImmE);//è¿™é‡Œæ˜¯ä¸ºäº†0ä½æ‰©å±•
+//add shift inst oprand
+//floprc #(32)E8(clk, rst, FlushE, SaD, SaE);
+//---------------------
 
 mux2  #(5) regmux(RtE, RdE, RegDstE, WriteRegE);
 mux3 #(32) forwardamux(DataAE, ResultW, ALUOutM, ForwardAE, SrcAE);
 mux3 #(32) forwardbmux(DataBE, ResultW, ALUOutM, ForwardBE, WriteDataE);
-mux2 #(32) alumux(WriteDataE, SignImmE, ALUSrcE, SrcBE);
+//add shift inst oprand
+//mux2 #(32) alusrcamux(RegValue, SaE, ,SrcAE); //lack control signal
+//---------------------
+//mux2 #(32) alusrcbmux(WriteDataE, SignImmE, ALUSrcE, SrcBE);
+mux3 #(32) alusrcbmux(WriteDataE, SignImmE, ZeroImmE, ALUSrcE, SrcBE);//è¿™é‡Œæ˜¯æ”¹æˆäº†ä¸‰é€‰ä¸€
 
 alu alu(ALUControlE, SrcAE, SrcBE, ALUOutE);
 //----------------------

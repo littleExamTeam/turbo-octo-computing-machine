@@ -8,7 +8,7 @@ module aludec(
 
 always @(*) begin
     case(Op)
-        `R_TYPE: begin
+        6'b000000: begin
             case(Funct)
                 //logic inst
                 `EXE_AND: ALUControl <= `EXE_AND_OP;
@@ -77,3 +77,5 @@ always @(*) begin
         default: ALUControl <= `EXE_NOP_OP;
     endcase
 end
+
+endmodule
