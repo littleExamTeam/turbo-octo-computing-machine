@@ -1,0 +1,193 @@
+`timescale 1ns / 1ps
+module datapath(
+    input wire clk, rst,
+
+    //fetch stage
+    output wire[31:0] PCF,
+    input  wire[31:0] InstF,
+
+    //decode stage
+    output wire [5:0] Op,
+    output wire [5:0] Funct,
+    input  wire RegWriteD,
+    input  wire MemtoRegD,
+    input  wire MemWriteD,
+    input  wire [2:0] ALUControlD,
+    input  wire ALUSrcD,
+    input  wire RegDstD,
+    input  wire JumpD,
+    input  wire BranchD,
+    
+    //mem stage
+    output wire MemWriteM,
+    output wire [31:0] ALUOutM,
+    output wire [31:0] WriteDataM,
+    input  wire [31:0] ReadDataM
+
+);
+wire [31:0] PC;
+
+//fetch stage
+wire [31:0] PCPlus4F;
+wire StallF;
+
+//decode stage
+wire [31:0] InstD;
+wire [31:0] PCPlus4D;
+wire [31:0] PCBranchD;
+wire [31:0] PCJumpD;
+wire [31:0] SignImmD;
+wire [31:0] ExSignImmD;
+wire [27:0] ExJumpAddr;
+//寄存器组输出
+wire [31:0] DataAD, DataBD;
+//等于比较器输入，输出
+wire [31:0] CmpA, CmpB;
+wire [31:0] EqualD;
+//寄存器号
+wire  [4:0] RsD, RtD, RdD;
+
+wire [1:0] ForwardAD, ForwardBD;
+wire StallD, FlushD;
+
+// excute stage
+wire RegWriteE;
+wire MemtoRegE;
+wire MemWriteE;
+wire [2:0] ALUControlE;
+wire ALUSrcE;
+wire RegDstE;
+wire [1:0] PCSrcD;
+
+wire [31:0] SignImmE;
+wire [31:0] ExSignImmE;
+wire [31:0] DataAE, DataBE;
+wire [31:0] SrcAE, SrcBE, ALUOutE;
+wire [31:0] WriteDataE;
+wire  [4:0] RsE, RtE, RdE;
+wire  [4:0] WriteRegE;
+
+wire [1:0] ForwardAE, ForwardBE;
+wire FlushE;
+
+// mem stage
+wire RegWriteM;
+wire MemtoRegM;
+
+wire [4:0] WriteRegM; 
+
+// writeback stage
+wire RegWriteW;
+wire MemtoRegW;
+
+wire [31:0] ReadDataW;
+wire [31:0] ALUOutW;
+wire [31:0] ResultW;
+wire  [4:0] WriteRegW;
+
+//next pc
+mux3 #(32) pcmux(PCPlus4F, PCBranchD, PCJumpD, PCSrcD, PC);
+
+//-----fetch stage-----
+pc #(32) pcreg(clk, rst, ~StallF, PC, PCF);
+adder pcadder(PCF, 32'b100, PCPlus4F);
+//---------------------
+
+//-----decode stage-----
+assign Op    = InstD[31:26];
+assign RsD   = InstD[25:21];
+assign RtD   = InstD[20:16];
+assign RdD   = InstD[15:11];
+assign Funct = InstD[5:0];
+
+assign PCSrcD[0:0] = BranchD & EqualD;
+assign PCSrcD[1:1] = JumpD;
+
+assign FlushD = PCSrcD[0:0] | PCSrcD[1:1];
+
+flopenrc #(32)D1(clk, rst, ~StallD, FlushD, InstF, InstD);
+flopenrc #(32)D2(clk, rst, ~StallD, FlushD, PCPlus4F, PCPlus4D);
+
+regfile rf(clk, RegWriteW, RsD, RtD, WriteRegW, ResultW, DataAD, DataBD);
+
+//判断是否分支跳转
+mux2 #(32)DAmux(DataAD, ALUOutM, ForwardAD, CmpA);
+mux2 #(32)DBmux(DataBD, ALUOutM, ForwardBD, CmpB);
+eqcmp cmp(CmpA, CmpB, EqualD);
+
+//计算分支指令地址
+signext se(InstD[15:0], SignImmD);
+sl2 #(32)sl21(SignImmD, ExSignImmD);
+adder branchadder(PCPlus4D, ExSignImmD, PCBranchD);
+
+//获取直接跳转指令地址
+sl2 #(26)sl22(InstD[25:0], ExJumpAddr);
+assign PCJumpD = {InstD[31:28], ExJumpAddr};
+//----------------------
+
+//-----excute stage-----
+floprc  #(8)E1(clk, rst, FlushE,
+    {RegWriteD,MemtoRegD,MemWriteD,ALUControlD,ALUSrcD,RegDstD},
+    {RegWriteE,MemtoRegE,MemWriteE,ALUControlE,ALUSrcE,RegDstE});
+floprc #(32)E2(clk, rst, FlushE, DataAD, DataAE);
+floprc #(32)E3(clk, rst, FlushE, DataBD, DataBE);
+floprc  #(5)E4(clk, rst, FlushE, RsD, RsE);
+floprc  #(5)E5(clk, rst, FlushE, RtD, RtE);
+floprc  #(5)E6(clk, rst, FlushE, RdD, RdE);
+floprc #(32)E7(clk, rst, FlushE, SignImmD, SignImmE);
+
+mux2  #(5) regmux(RtE, RdE, RegDstE, WriteRegE);
+mux3 #(32) forwardamux(DataAE, ResultW, ALUOutM, ForwardAE, SrcAE);
+mux3 #(32) forwardbmux(DataBE, ResultW, ALUOutM, ForwardBE, WriteDataE);
+mux2 #(32) alumux(WriteDataE, SignImmE, ALUSrcE, SrcBE);
+
+alu alu(ALUControlE, SrcAE, SrcBE, ALUOutE);
+//----------------------
+
+//-----mem stage-----
+flopr  #(3)M1(clk, rst,
+    {RegWriteE,MemtoRegE,MemWriteE},
+    {RegWriteM,MemtoRegM,MemWriteM});
+flopr #(32)M2(clk, rst, ALUOutE, ALUOutM);
+flopr #(32)M3(clk, rst, WriteDataE, WriteDataM);
+flopr  #(5)M4(clk, rst, WriteRegE, WriteRegM);
+//-------------------
+
+//-----writeback stage-----
+flopr  #(2)W1(clk, rst,
+    {RegWriteM,MemtoRegM},{RegWriteW,MemtoRegW});
+flopr #(32)W2(clk, rst, ReadDataM, ReadDataW);
+flopr #(32)W3(clk, rst, ALUOutM, ALUOutW);
+flopr  #(5)W4(clk, rst, WriteRegM, WriteRegW);
+
+mux2 #(32)resultmux(ALUOutW, ReadDataW, MemtoRegW, ResultW);
+//--------------------------
+
+//hazard
+hazard h(
+    //fetch stage
+    StallF,
+    //decode stage
+    RsD, RtD,
+    BranchD,
+
+    StallD,
+    ForwardAD, ForwardBD,
+    //excute stage
+    RsE, RtE,
+    WriteRegE,
+    MemtoRegE,
+    RegWriteE,
+
+    FlushE,
+    ForwardAE, ForwardBE,
+    //mem stage
+    WriteRegM,
+    MemtoRegM,
+    RegWriteM,
+    //writeback stage
+    WriteRegW,
+    RegWriteW
+);
+
+endmodule

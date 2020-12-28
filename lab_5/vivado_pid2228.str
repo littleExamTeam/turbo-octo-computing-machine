@@ -1,0 +1,346 @@
+/*
+
+Xilinx Vivado v2019.1 (64-bit) [Major: 2019, Minor: 1]
+SW Build: 2552052 on Fri May 24 14:49:42 MDT 2019
+IP Build: 2548770 on Fri May 24 18:01:18 MDT 2019
+
+Process ID (PID): 2228
+License: Customer
+
+Current time: 	Mon Dec 28 09:12:07 CST 2020
+Time zone: 	China Standard Time (Asia/Shanghai)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 8
+
+Screen size: 2560x1600
+Screen resolution (DPI): 200
+Available screens: 1
+Available disk space: 57 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=24
+
+Java version: 	9.0.4 64-bit
+Java home: 	D:/Xlinx/Vivado/2019.1/tps/win64/jre9.0.4
+Java executable location: 	D:/Xlinx/Vivado/2019.1/tps/win64/jre9.0.4/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	Administrator
+User home directory: C:/Users/Administrator
+User working directory: C:/Users/Administrator/Desktop/DESIGN/lab_5
+User country: 	CN
+User language: 	zh
+User locale: 	zh_CN
+
+RDI_BASEROOT: D:/Xlinx/Vivado
+HDI_APPROOT: D:/Xlinx/Vivado/2019.1
+RDI_DATADIR: D:/Xlinx/Vivado/2019.1/data
+RDI_BINDIR: D:/Xlinx/Vivado/2019.1/bin
+
+Vivado preferences file location: C:/Users/Administrator/AppData/Roaming/Xilinx/Vivado/2019.1/vivado.xml
+Vivado preferences directory: C:/Users/Administrator/AppData/Roaming/Xilinx/Vivado/2019.1/
+Vivado layouts directory: C:/Users/Administrator/AppData/Roaming/Xilinx/Vivado/2019.1/layouts
+PlanAhead jar file location: 	D:/Xlinx/Vivado/2019.1/lib/classes/planAhead.jar
+Vivado log file location: 	C:/Users/Administrator/Desktop/DESIGN/lab_5/vivado.log
+Vivado journal file location: 	C:/Users/Administrator/Desktop/DESIGN/lab_5/vivado.jou
+Engine tmp dir: 	C:/Users/Administrator/Desktop/DESIGN/lab_5/.Xil/Vivado-2228-DESKTOP-UC07LRK
+
+Xilinx Environment Variables
+----------------------------
+XILINX: D:/Xlinx/Vivado/2019.1/ids_lite/ISE
+XILINX_DSP: D:/Xlinx/Vivado/2019.1/ids_lite/ISE
+XILINX_PLANAHEAD: D:/Xlinx/Vivado/2019.1
+XILINX_SDK: D:/Xlinx/SDK/2019.1
+XILINX_VIVADO: D:/Xlinx/Vivado/2019.1
+XILINX_VIVADO_HLS: D:/Xlinx/Vivado/2019.1
+
+
+GUI allocated memory:	140 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 592 MB
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// TclEventType: PROJECT_OPEN_DIALOG
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// by (cl):  Open Project : addNotify
+// Opening Vivado Project: C:\Users\Administrator\Desktop\DESIGN\lab_5\lab_5.xpr. Version: Vivado v2019.1 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project C:/Users/Administrator/Desktop/DESIGN/lab_5/lab_5.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 95 MB (+96709kb) [00:00:10]
+// [Engine Memory]: 652 MB (+532339kb) [00:00:10]
+// [GUI Memory]: 116 MB (+17034kb) [00:00:11]
+// [Engine Memory]: 685 MB (+156kb) [00:00:11]
+// [GUI Memory]: 122 MB (+1078kb) [00:00:12]
+// WARNING: HEventQueue.dispatchEvent() is taking  2764 ms.
+// Tcl Message: open_project C:/Users/Administrator/Desktop/DESIGN/lab_5/lab_5.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from 'D:/Verilog/lab_5' since last save. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xlinx/Vivado/2019.1/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 709 MB. GUI used memory: 67 MB. Current time: 12/28/20, 9:12:12 AM CST
+// Tcl Message: open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 736.906 ; gain = 120.438 
+// Project name: lab_5; location: C:/Users/Administrator/Desktop/DESIGN/lab_5; part: xc7a100tcsg324-1
+dismissDialog("Open Project"); // by (cl)
+// [Engine Memory]: 720 MB (+1370kb) [00:00:14]
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 28 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v)]", 1); // B (F, cl)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v)]", 1); // B (F, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v)]", 1); // B (F, cl)
+selectTab((HResource) null, (HResource) null, "Reports", 3); // aK (aH, cl)
+// Elapsed time: 11 seconds
+selectTab((HResource) null, (HResource) null, "Messages", 1); // aK (aH, cl)
+selectTab((HResource) null, (HResource) null, "Log", 2); // aK (aH, cl)
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // aK (aH, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), inst_mem : inst_mem (inst_mem.xci)]", 3); // B (F, cl)
+// A (cl): Show IP Hierarchy: addNotify
+// Elapsed time: 11 seconds
+dismissDialog("Show IP Hierarchy"); // A (cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), inst_mem : inst_mem (inst_mem.xci)]", 3, false); // B (F, cl)
+selectButton(PAResourceQtoS.SrcFilePropPanels_MORE_INFO, "more info"); // h (cS, cl)
+// HMemoryUtils.trashcanNow. Engine heap size: 730 MB. GUI used memory: 68 MB. Current time: 12/28/20, 9:13:30 AM CST
+selectButton(RDIResource.HPopupTitle_CLOSE, (String) null); // k (n, ResizableWindow)
+selectMenu(PAResourceItoN.MainMenuMgr_REPORTS, "Reports"); // Z (q, cl)
+selectMenuItem(PAResourceCommand.PACommandNames_REPORT_IP_STATUS, "Report IP Status"); // ah (cl)
+dismissMenu(PAResourceItoN.MainMenuMgr_REPORTS, "Reports"); // Z (q, cl)
+// Run Command: PAResourceCommand.PACommandNames_REPORT_IP_STATUS
+// Tcl Command: 'report_ip_status -name ip_status '
+// TclEventType: IP_SUMMARY_RESULTS
+// by (cl):  Report IP Status : addNotify
+// Tcl Message: report_ip_status -name ip_status  
+dismissDialog("Report IP Status"); // by (cl)
+selectTreeTable(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "data_mem ; false ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; Block Memory Generator ; 8.4 (Rev. 3) ; 8.4 (Rev. 3) ; data_mem [Block Memory Generator] (Shared output directory) ; xc7a100tcsg324-1", 0, "false", 1, false); // B (O, cl)
+selectTreeTableHeader(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "Upgrade", 1); // B (O, cl)
+selectTreeTableHeader(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "Upgrade", 1); // B (O, cl)
+selectTreeTableHeader(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "Upgrade", 1); // B (O, cl)
+selectTreeTable(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "data_mem ; false ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; Block Memory Generator ; 8.4 (Rev. 3) ; 8.4 (Rev. 3) ; data_mem [Block Memory Generator] (Shared output directory) ; xc7a100tcsg324-1", 0, "false", 1, false); // B (O, cl)
+selectTreeTable(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "data_mem ; false ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; Block Memory Generator ; 8.4 (Rev. 3) ; 8.4 (Rev. 3) ; data_mem [Block Memory Generator] (Shared output directory) ; xc7a100tcsg324-1", 0, "data_mem", 0, false); // B (O, cl)
+selectTreeTable(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "data_mem ; false ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; Block Memory Generator ; 8.4 (Rev. 3) ; 8.4 (Rev. 3) ; data_mem [Block Memory Generator] (Shared output directory) ; xc7a100tcsg324-1", 0, "false", 1, false); // B (O, cl)
+expandTreeTable(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "data_mem ; false ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; Block Memory Generator ; 8.4 (Rev. 3) ; 8.4 (Rev. 3) ; data_mem [Block Memory Generator] (Shared output directory) ; xc7a100tcsg324-1", 0); // B (O, cl)
+selectTreeTable(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "data_mem ; false ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; Block Memory Generator ; 8.4 (Rev. 3) ; 8.4 (Rev. 3) ; data_mem [Block Memory Generator] (Shared output directory) ; xc7a100tcsg324-1", 0, "false", 1, false, false, false, false, false, true); // B (O, cl) - Double Click
+selectTreeTable(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "data_mem ; false ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; Block Memory Generator ; 8.4 (Rev. 3) ; 8.4 (Rev. 3) ; data_mem [Block Memory Generator] (Shared output directory) ; xc7a100tcsg324-1", 0, "false", 1, false); // B (O, cl)
+selectTreeTableHeader(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "Upgrade", 1); // B (O, cl)
+selectTreeTableHeader(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "Upgrade", 1); // B (O, cl)
+selectTreeTableHeader(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "IP Status", 2); // B (O, cl)
+selectTreeTableHeader(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "IP Status", 2); // B (O, cl)
+ // selectButton(PAResourceItoN.IPStatusTablePanel_MORE_INFO, "Shared output directory"); // N (B, cl)
+selectTreeTable(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "data_mem ; false ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; Block Memory Generator ; 8.4 (Rev. 3) ; 8.4 (Rev. 3) ; data_mem [Block Memory Generator] (Shared output directory) ; xc7a100tcsg324-1", 0, "data_mem [Block Memory Generator] (Shared output directory)", 2, false); // B (O, cl)
+// Elapsed time: 188 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), data_mem : data_mem (data_mem.xci)]", 4, false); // B (F, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), inst_mem : inst_mem (inst_mem.xci)]", 3); // B (F, cl)
+// A (cl): Show IP Hierarchy: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (A)
+// TclEventType: DG_GRAPH_STALE
+dismissDialog("Show IP Hierarchy"); // A (cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), inst_mem : inst_mem (inst_mem.xci)]", 3, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), inst_mem : inst_mem (inst_mem.xci)]", 3, false); // B (F, cl)
+// Elapsed time: 12 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), inst_mem : inst_mem (inst_mem.xci), inst_mem(inst_mem_arch) (inst_mem.vhd)]", 4); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), inst_mem : inst_mem (inst_mem.xci)]", 3, true); // B (F, cl) - Node
+selectButton(PAResourceQtoS.SrcFilePropPanels_MORE_INFO, "more info"); // h (cS, cl)
+selectButton(RDIResource.HPopupTitle_CLOSE, (String) null); // k (n, ResizableWindow)
+ // selectButton(PAResourceItoN.IPStatusTablePanel_MORE_INFO, "Shared output directory"); // N
+ // selectButton(PAResourceItoN.IPStatusTablePanel_MORE_INFO, "Shared output directory"); // N (B, cl)
+selectTreeTable(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "data_mem ; false ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; Block Memory Generator ; 8.4 (Rev. 3) ; 8.4 (Rev. 3) ; data_mem [Block Memory Generator] (Shared output directory) ; xc7a100tcsg324-1", 0, "data_mem [Block Memory Generator] (Shared output directory)", 2, false); // B (O, cl)
+ // selectButton(PAResourceItoN.IPStatusTablePanel_MORE_INFO, "Shared output directory"); // N (B, cl)
+selectTreeTable(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "inst_mem ; false ; inst_mem [Block Memory Generator] (Shared output directory) ; inst_mem [Block Memory Generator] (Shared output directory) ; inst_mem [Block Memory Generator] (Shared output directory) ; Block Memory Generator ; 8.4 (Rev. 3) ; 8.4 (Rev. 3) ; inst_mem [Block Memory Generator] (Shared output directory) ; xc7a100tcsg324-1", 1, "inst_mem [Block Memory Generator] (Shared output directory)", 2, false); // B (O, cl)
+ // selectButton(PAResourceItoN.IPStatusTablePanel_MORE_INFO, "Shared output directory"); // N (B, cl)
+selectTreeTable(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "inst_mem ; false ; inst_mem [Block Memory Generator] (Shared output directory) ; inst_mem [Block Memory Generator] (Shared output directory) ; inst_mem [Block Memory Generator] (Shared output directory) ; Block Memory Generator ; 8.4 (Rev. 3) ; 8.4 (Rev. 3) ; inst_mem [Block Memory Generator] (Shared output directory) ; xc7a100tcsg324-1", 1, "inst_mem [Block Memory Generator] (Shared output directory)", 2, false); // B (O, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), data_mem : data_mem (data_mem.xci)]", 6); // B (F, cl)
+// A (cl): Show IP Hierarchy: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (A)
+// TclEventType: DG_GRAPH_STALE
+dismissDialog("Show IP Hierarchy"); // A (cl)
+selectButton(RDIResource.HPopupTitle_CLOSE, (String) null); // k (n, ResizableWindow)
+selectTreeTableHeader(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "Upgrade", 1); // B (O, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), data_mem : data_mem (data_mem.xci)]", 6, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), data_mem : data_mem (data_mem.xci)]", 6, false, false, false, false, false, true); // B (F, cl) - Double Click
+// Run Command: PAResourceCommand.PACommandNames_RECUSTOMIZE_CORE
+// TclEventType: IP_LOCK_CHANGE
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), data_mem : data_mem (data_mem.xci)]", 6, false); // B (F, cl)
+// TclEventType: LOAD_FEATURE
+// O (cl):  Re-customize IP : addNotify
+// r (cl): Re-customize IP: addNotify
+// WARNING: HEventQueue.dispatchEvent() is taking  1013 ms.
+dismissDialog("Re-customize IP"); // O (cl)
+dismissDialog("Re-customize IP"); // r (cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), data_mem : data_mem (data_mem.xci)]", 6); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), data_mem : data_mem (data_mem.xci)]", 6, true); // B (F, cl) - Node
+// Elapsed time: 13 seconds
+selectButton(PAResourceQtoS.SrcFilePropPanels_MORE_INFO, "more info"); // h (cS, cl)
+selectButton(RDIResource.HPopupTitle_CLOSE, (String) null); // k (n, ResizableWindow)
+// Elapsed time: 32 seconds
+selectButton(PAResourceQtoS.SrcFilePropPanels_MORE_INFO, "more info"); // h (cS, cl)
+// Elapsed time: 10 seconds
+selectButton(PAResourceItoN.IPStatusSectionPanel_UPGRADE_SELECTED, "Upgrade Selected"); // a (g, cl)
+selectButton(PAResourceItoN.IPStatusSectionPanel_UPGRADE_SELECTED, "Upgrade Selected"); // a (g, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), data_mem : data_mem (data_mem.xci)]", 6, true); // B (F, cl) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), data_mem : data_mem (data_mem.xci)]", 6, true); // B (F, cl) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), data_mem : data_mem (data_mem.xci)]", 6, true, false, false, false, false, true); // B (F, cl) - Double Click - Node
+// Run Command: PAResourceCommand.PACommandNames_RECUSTOMIZE_CORE
+// TclEventType: IP_LOCK_CHANGE
+// r (cl): Re-customize IP: addNotify
+// HMemoryUtils.trashcanNow. Engine heap size: 750 MB. GUI used memory: 78 MB. Current time: 12/28/20, 9:19:35 AM CST
+selectButton(PAResourceAtoD.CustomizeCoreDialog_IP_LOCATION, "IP Location"); // B (f, r)
+selectButton(RDIResource.HPopupTitle_CLOSE, (String) null); // k (n, ResizableWindow)
+// [GUI Memory]: 136 MB (+7929kb) [00:16:04]
+// Elapsed time: 825 seconds
+selectButton(PAResourceAtoD.CustomizeCoreDialog_IP_LOCATION, "IP Location"); // B (f, r)
+// Elapsed time: 13 seconds
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Power Estimation", 1); // bg (E, r)
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "IP Symbol", 0); // bg (E, r)
+// Elapsed time: 14 seconds
+dismissDialog("Re-customize IP"); // r (cl)
+ // selectButton(PAResourceItoN.IPStatusTablePanel_MORE_INFO, "Shared output directory"); // N (B, cl)
+selectTreeTable(PAResourceItoN.IPStatusTablePanel_IP_STATUS_TABLE, "data_mem ; false ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; data_mem [Block Memory Generator] (Shared output directory) ; Block Memory Generator ; 8.4 (Rev. 3) ; 8.4 (Rev. 3) ; data_mem [Block Memory Generator] (Shared output directory) ; xc7a100tcsg324-1", 0, "data_mem [Block Memory Generator] (Shared output directory)", 2, false); // B (O, cl)
+// Elapsed time: 21 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), inst_mem : inst_mem (inst_mem.xci), inst_mem(inst_mem_arch) (inst_mem.vhd)]", 4, true); // B (F, cl) - Node
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), inst_mem : inst_mem (inst_mem.xci), inst_mem(inst_mem_arch) (inst_mem.vhd)]", 4); // B (F, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), inst_mem : inst_mem (inst_mem.xci), inst_mem(inst_mem_arch) (inst_mem.vhd)]", 4); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), inst_mem : inst_mem (inst_mem.xci)]", 3, true); // B (F, cl) - Node
+// Elapsed time: 27 seconds
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), inst_mem : inst_mem (inst_mem.xci)]", 3); // B (F, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v)]", 2); // B (F, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v)]", 3); // B (F, cl)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v)]", 3); // B (F, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v)]", 3); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), main_dec : main_dec (controller.v)]", 4, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), main_dec : main_dec (controller.v)]", 4, false, false, false, false, false, true); // B (F, cl) - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), alu_dec : alu_dec (controller.v)]", 5, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), alu_dec : alu_dec (controller.v)]", 5, false, false, false, false, false, true); // B (F, cl) - Double Click
+// Elapsed time: 282 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), main_dec : main_dec (controller.v)]", 4, false); // B (F, cl)
+// Elapsed time: 13 seconds
+selectCodeEditor("controller.v", 381, 199); // cl (w, cl)
+selectCodeEditor("controller.v", 366, 243); // cl (w, cl)
+// Elapsed time: 19 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // Z (q, cl)
+selectMenu(PAResourceItoN.MainMenuMgr_UNSELECT_TYPE, "Unselect Type"); // ae (cl)
+selectMenu(PAResourceItoN.MainMenuMgr_UNSELECT_TYPE, "Unselect Type"); // ae (cl)
+dismissMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // Z (q, cl)
+selectMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // Z (q, cl)
+dismissMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // Z (q, cl)
+selectMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // Z (q, cl)
+dismissMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // Z (q, cl)
+selectMenu(PAResourceItoN.MainMenuMgr_REPORTS, "Reports"); // Z (q, cl)
+dismissMenu(PAResourceItoN.MainMenuMgr_REPORTS, "Reports"); // Z (q, cl)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // Z (q, cl)
+selectMenuItem(RDIResourceCommand.RDICommands_SETTINGS, "Settings..."); // ah (cl)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // Z (q, cl)
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// D (cl): Settings: addNotify
+// WARNING: HEventQueue.dispatchEvent() is taking  1504 ms.
+selectTree(PAResourceQtoS.SettingsDialog_OPTIONS_TREE, "[optionsRoot, Text Editor]", 7, true); // L (E, D) - Node
+// Elapsed time: 25 seconds
+selectComboBox(PAResourceQtoS.SettingsEditorPage_USE_THIS_DROP_DOWN_LIST_BOX_TO_SELECT, "Custom Editor...", 10); // av (Q, D)
+// ax (D): Custom Editor Definition: addNotify
+// [GUI Memory]: 144 MB (+1205kb) [00:31:30]
+// Elapsed time: 155 seconds
+setText(PAResourceQtoS.SettingsEditorPage_ENTER_COMMAND_LINE_FOR_CUSTOM, "\"C:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code\""); // Y (ax)
+// Elapsed time: 27 seconds
+setText(PAResourceQtoS.SettingsEditorPage_ENTER_COMMAND_LINE_FOR_CUSTOM, "C:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code -g [file name]:[line number]"); // Y (ax)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ax)
+dismissDialog("Custom Editor Definition"); // ax (D)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (D)
+// [GUI Memory]: 160 MB (+8872kb) [00:32:30]
+dismissDialog("Settings"); // D (cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), alu_dec : alu_dec (controller.v)]", 5, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), alu_dec : alu_dec (controller.v)]", 5, false, false, false, false, false, true); // B (F, cl) - Double Click
+// Launch External Editor: 'C:/Users/Administrator/AppData/Local/Programs/Microsoft VS Code -g "C:/Users/Administrator/Desktop/DESIGN/lab_5/lab_5.srcs/sources_1/new/controller.v":50'
+// HOptionPane Error: 'Unable to launch external text editor using the following arguments:  'C:/Users/Administrator/AppData/Local/Programs/Microsoft VS Code -g "C:/Users/Administrator/Desktop/DESIGN/lab_5/lab_5.sr...'  Please verify that the editor is installed on your system, specified in your PATH, and the path contains no double quotes (e.g., "[path to editor]"). (Unable to Launch External Text Editor)'
+selectButton("OptionPane.button", "OK"); // JButton (A, G)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // Z (q, cl)
+selectMenu(RDIResourceCommand.RDICommands_CUSTOM_COMMANDS, "Custom Commands"); // ae (cl)
+selectMenuItem(RDIResourceCommand.RDICommands_SETTINGS, "Settings..."); // ah (cl)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // Z (q, cl)
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+// D (cl): Settings: addNotify
+selectComboBox(PAResourceQtoS.SettingsEditorPage_USE_THIS_DROP_DOWN_LIST_BOX_TO_SELECT, "Custom Editor...", 10); // av (Q, D)
+selectButton(PAResourceQtoS.SettingsEditorPage_CUSTOM_EDITOR, (String) null); // q (Q, D)
+// ax (D): Custom Editor Definition: addNotify
+// Elapsed time: 33 seconds
+setText(PAResourceQtoS.SettingsEditorPage_ENTER_COMMAND_LINE_FOR_CUSTOM, "C:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code\Code.exe -g [file name]:[line number]"); // Y (ax)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ax)
+dismissDialog("Custom Editor Definition"); // ax (D)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (D)
+dismissDialog("Settings"); // D (cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), main_dec : main_dec (controller.v)]", 4, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), main_dec : main_dec (controller.v)]", 4, false, false, false, false, false, true); // B (F, cl) - Double Click
+// Launch External Editor: 'C:/Users/Administrator/AppData/Local/Programs/Microsoft VS Code/Code.exe -g "C:/Users/Administrator/Desktop/DESIGN/lab_5/lab_5.srcs/sources_1/new/controller.v":3'
+// Elapsed time: 13 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), alu_dec : alu_dec (controller.v)]", 5, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), alu_dec : alu_dec (controller.v)]", 5, false, false, false, false, false, true); // B (F, cl) - Double Click
+// Launch External Editor: 'C:/Users/Administrator/AppData/Local/Programs/Microsoft VS Code/Code.exe -g "C:/Users/Administrator/Desktop/DESIGN/lab_5/lab_5.srcs/sources_1/new/controller.v":50'
+// Elapsed time: 69 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), alu_dec : alu_dec (controller.v)]", 5, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), alu_dec : alu_dec (controller.v)]", 5, false, false, false, false, false, true); // B (F, cl) - Double Click
+// Launch External Editor: 'C:/Users/Administrator/AppData/Local/Programs/Microsoft VS Code/Code.exe -g "C:/Users/Administrator/Desktop/DESIGN/lab_5/lab_5.srcs/sources_1/new/controller.v":50'
+// Elapsed time: 13 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), main_dec : main_dec (controller.v)]", 4, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), main_dec : main_dec (controller.v)]", 4, false, false, false, false, false, true); // B (F, cl) - Double Click
+// Launch External Editor: 'C:/Users/Administrator/AppData/Local/Programs/Microsoft VS Code/Code.exe -g "C:/Users/Administrator/Desktop/DESIGN/lab_5/lab_5.srcs/sources_1/new/controller.v":3'
+// Elapsed time: 22 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), alu_dec : alu_dec (controller.v)]", 5, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), alu_dec : alu_dec (controller.v)]", 5, false, false, false, false, true, false); // B (F, cl) - Popup Trigger
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), dp : datapath (datapath.v)]", 6, true); // B (F, cl) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), alu_dec : alu_dec (controller.v)]", 5, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v)]", 3, true); // B (F, cl) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v)]", 3, true, false, false, false, false, true); // B (F, cl) - Double Click - Node
+// Launch External Editor: 'C:/Users/Administrator/AppData/Local/Programs/Microsoft VS Code/Code.exe -g "C:/Users/Administrator/Desktop/DESIGN/lab_5/lab_5.srcs/sources_1/new/controller.v":79'
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v)]", 3); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), alu_dec : alu_dec (controller.v)]", 5, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), alu_dec : alu_dec (controller.v)]", 5, false, false, false, false, false, true); // B (F, cl) - Double Click
+// Launch External Editor: 'C:/Users/Administrator/AppData/Local/Programs/Microsoft VS Code/Code.exe -g "C:/Users/Administrator/Desktop/DESIGN/lab_5/lab_5.srcs/sources_1/new/controller.v":50'
+// Elapsed time: 27 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (top.v), mips : mips (mips.v), c : controller (controller.v), main_dec : main_dec (controller.v)]", 4, false); // B (F, cl)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Coefficient Files]", 12); // B (F, cl)
+selectCodeEditor("controller.v", 310, 454); // cl (w, cl)
+selectCodeEditor("controller.v", 88, 334); // cl (w, cl)
+// Elapsed time: 10 seconds
+selectCodeEditor("controller.v", 334, 208); // cl (w, cl)
+selectCodeEditor("controller.v", 375, 261); // cl (w, cl)
+// Elapsed time: 10 seconds
+selectCodeEditor("controller.v", 118, 276); // cl (w, cl)
+selectCodeEditor("controller.v", 118, 276, false, false, false, false, true); // cl (w, cl) - Double Click
+selectCodeEditor("controller.v", 221, 261); // cl (w, cl)
+selectCodeEditor("controller.v", 294, 271); // cl (w, cl)
+// Elapsed time: 25 seconds
+selectCodeEditor("controller.v", 390, 268); // cl (w, cl)
+selectCodeEditor("controller.v", 252, 228); // cl (w, cl)
+selectCodeEditor("controller.v", 322, 227); // cl (w, cl)
+// HMemoryUtils.trashcanNow. Engine heap size: 750 MB. GUI used memory: 99 MB. Current time: 12/28/20, 9:49:35 AM CST

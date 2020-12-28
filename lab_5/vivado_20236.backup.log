@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sun Nov 22 20:47:35 2020
+# Process ID: 20236
+# Current directory: D:/Verilog/lab_5
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent18604 D:\Verilog\lab_5\lab_5.xpr
+# Log file: D:/Verilog/lab_5/vivado.log
+# Journal file: D:/Verilog/lab_5\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Verilog/lab_5/lab_5.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/Vivado/2019.1/data/ip'.
+open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:05 . Memory (MB): peak = 724.949 ; gain = 95.348
+update_compile_order -fileset sources_1
+launch_simulation
+boost::filesystem::remove: 另一个程序正在使用此文件，进程无法访问。: "D:/Verilog/lab_5/lab_5.sim/sim_1/behav/xsim/simulate.log"
+launch_simulation
+boost::filesystem::remove: 另一个程序正在使用此文件，进程无法访问。: "D:/Verilog/lab_5/lab_5.sim/sim_1/behav/xsim/simulate.log"
+exit
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 22 20:48:14 2020...
