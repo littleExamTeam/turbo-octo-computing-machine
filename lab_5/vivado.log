@@ -2,10 +2,10 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Mon Dec 28 21:39:29 2020
-# Process ID: 1096
+# Start of session at: Tue Dec 29 00:14:18 2020
+# Process ID: 11312
 # Current directory: C:/Users/Administrator/Desktop/littleExam/turbo-octo-computing-machine/lab_5
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10016 C:\Users\Administrator\Desktop\littleExam\turbo-octo-computing-machine\lab_5\lab_5.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4892 C:\Users\Administrator\Desktop\littleExam\turbo-octo-computing-machine\lab_5\lab_5.xpr
 # Log file: C:/Users/Administrator/Desktop/littleExam/turbo-octo-computing-machine/lab_5/vivado.log
 # Journal file: C:/Users/Administrator/Desktop/littleExam/turbo-octo-computing-machine/lab_5\vivado.jou
 #-----------------------------------------------------------
@@ -20,7 +20,3 @@ WARNING: [IP_Flow 19-2162] IP 'inst_mem' is locked:
 * IP 'inst_mem' shares a common output directory with other IP. It is recommended that each IP be placed in its own directory.
 WARNING: [IP_Flow 19-2162] IP 'data_mem' is locked:
 * IP 'data_mem' shares a common output directory with other IP. It is recommended that each IP be placed in its own directory.
-open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 711.789 ; gain = 86.035
-update_compile_order -fileset sources_1
-exit
-INFO: [Common 17-206] Exiting Vivado at Mon Dec 28 23:58:43 2020...

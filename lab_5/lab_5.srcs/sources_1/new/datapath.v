@@ -147,7 +147,9 @@ floprc  #(5)E4(clk, rst, FlushE, RsD, RsE);
 floprc  #(5)E5(clk, rst, FlushE, RtD, RtE);
 floprc  #(5)E6(clk, rst, FlushE, RdD, RdE);
 floprc #(32)E7(clk, rst, FlushE, SignImmD, SignImmE);
+
 floprc #(32)E8(clk, rst, FlushE, ZeroImmD, ZeroImmE);//这里是为了0位扩展
+
 //add shift inst oprand
 //floprc #(32)E8(clk, rst, FlushE, SaD, SaE);
 //---------------------
@@ -158,8 +160,10 @@ mux3 #(32) forwardbmux(DataBE, ResultW, ALUOutM, ForwardBE, WriteDataE);
 //add shift inst oprand
 //mux2 #(32) alusrcamux(RegValue, SaE, ,SrcAE); //lack control signal
 //---------------------
+
 //mux2 #(32) alusrcbmux(WriteDataE, SignImmE, ALUSrcE, SrcBE);
 mux3 #(32) alusrcbmux(WriteDataE, SignImmE, ZeroImmE, ALUSrcE, SrcBE);//这里是改成了三选一
+
 
 alu alu(ALUControlE, SrcAE, SrcBE, ALUOutE);
 //----------------------
