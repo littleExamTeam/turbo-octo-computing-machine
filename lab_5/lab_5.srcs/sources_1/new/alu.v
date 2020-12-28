@@ -18,6 +18,7 @@ module alu(
             `EXE_ADDIU_OP: begin result <= x + y;end //无符号立即数加法
             `EXE_SUB_OP: begin result <= x - y;end  //减法
             `EXE_SUBU_OP: begin result <= x - y;end //无符号数减法
+
             `EXE_SLT_OP: begin 
                 if (x < y)begin 
                     result <= 32'b1;
@@ -56,10 +57,10 @@ module alu(
             end //将寄存器 rs 的值与寄存器 rt 中的值进行有符号数比较，如果寄存器 rs 中的值小，则寄存器 rd 置 1；
                 //否则寄存器 rd 置 0
             
-            `EXE_DIV_OP: begin result <= x + y;end //TODO:这里预计的是将乘法器写在通路里，通过选择器进行选择
-            `EXE_DIVU_OP: begin result <= x | y;end
-            `EXE_MULT_OP: begin result <= x + y;end  
-            `EXE_MULTU_OP: begin result <= x - y;end 
+            // `EXE_DIV_OP: begin result <= x + y;end //TODO:这里预计的是将乘法器写在通路里，通过选择器进行选择
+            // `EXE_DIVU_OP: begin result <= x | y;end
+            // `EXE_MULT_OP: begin result <= x + y;end  
+            // `EXE_MULTU_OP: begin result <= x - y;end 
 
             //这下面是逻辑运算符
             `EXE_AND_OP: begin 
@@ -73,9 +74,9 @@ module alu(
 
 
             `EXE_LUI_OP: begin 
-                result <= x + y;
+                result <= {y[15:0],16'b0};
             end  //将 16 位立即数 imm 写入寄存器 rt 的高 16 位，寄存器 rt 的低 16 位置 0。
-                //TODO:这里需要更改通路 
+                //TODO:这里需要在通路中设计要存的寄存器为rt
 
             `EXE_NOR_OP: begin 
                 result <= !(x | y);
@@ -84,27 +85,33 @@ module alu(
             `EXE_OR_OP: begin result <= x | y;end 
             `EXE_ORI_OP: begin result <= x | y;end
             `EXE_XOR_OP: begin result <= x ^ y;end  
-            `EXE_XORI_OP: begin result <= x ^ y;end 
+            `EXE_XORI_OP: begin result <= x ^ y;end  
 
             //这下面是移位指令
-            `EXE_SLLV_OP: begin result <= y << x[4:0];end //逻辑左移0填充
+            `EXE_SLLV_OP: begin 
+                result <= y << x[4:0];
+            end //逻辑左移0填充
 
             `EXE_SLL_OP: begin 
-                result <= x | y;
+                result <= y << x[4:0];
             end //由立即数 sa 指定移位量，对寄存器 rt 的值进行逻辑左移，结果写入寄存器 rd 中。
             //TODO:这里也需要修改数据通路，用0填充
 
-            `EXE_SRAV_OP: begin result <= y >> x[4:0];end  //逻辑右移TODO:这里需要将使用y[31]进行填充
+            `EXE_SRAV_OP: begin 
+                result <= ($signed(y)) >>> x[4:0];
+            end  //逻辑右移TODO:这里需要将使用y[31]进行填充
 
             `EXE_SRA_OP: begin 
-                result <= x - y;
+                result <= ($signed(y)) >>> x[4:0];
             end //由立即数 sa 指定移位量，对寄存器 rt 的值进行算术右移，结果写入寄存器 rd 中
                 //TODO:这里需要修改数据通路，应该是和上面的那个一样的问题，另外需要用rt[31]进行填充
 
-            `EXE_SRLV_OP: begin result <= y >> x[4:0];end //逻辑右移0填充
+            `EXE_SRLV_OP: begin 
+                result <= y >> x[4:0];
+            end //逻辑右移0填充
 
             `EXE_SRL_OP: begin 
-                result <= x | y;
+                result <= y >> x[4:0];
             end//由立即数 sa 指定移位量，对寄存器 rt 的值进行逻辑右移，结果写入寄存器 rd 中。
                 //TODO:需要修改数据通路实现，原因跟上面一致，用0填充
 
@@ -134,14 +141,14 @@ module alu(
             // `EXE_SYSCALL_OP: begin result <= x + y;end  //加法
 
             //TODO:访存指令,这里需要大幅度修改数据通路
-            `EXE_LB_OP: begin result <= x - y;end //减法
-            `EXE_LBU_OP: begin result <= x + y;end //无符号数加法
-            `EXE_LH_OP: begin result <= x | y;end
-            `EXE_LHU_OP: begin result <= x | y;end
-            `EXE_LW_OP: begin result <= x + y;end  //加法
-            `EXE_SB_OP: begin result <= x - y;end //减法
-            `EXE_SH_OP: begin result <= x + y;end //无符号数加法
-            `EXE_SW_OP: begin result <= x | y;end
+            // `EXE_LB_OP: begin result <= x - y;end //减法
+            // `EXE_LBU_OP: begin result <= x + y;end //无符号数加法
+            // `EXE_LH_OP: begin result <= x | y;end
+            // `EXE_LHU_OP: begin result <= x | y;end
+            // `EXE_LW_OP: begin result <= x + y;end  //加法
+            // `EXE_SB_OP: begin result <= x - y;end //减法
+            // `EXE_SH_OP: begin result <= x + y;end //无符号数加法
+            // `EXE_SW_OP: begin result <= x | y;end
 
             // //特权指令
             // `EXE_ERET_OP: begin result <= x + y;end  //加法
