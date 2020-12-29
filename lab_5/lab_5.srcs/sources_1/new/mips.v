@@ -11,13 +11,15 @@ module mips(
     input  wire [31:0] ReadDataM
 );
 
-wire JumpD;
+
 wire RegWriteD;
 wire MemtoRegD;
 wire MemWriteD;
-wire [7:0] ALUContrD;
-wire [1:0] ALUSrcD;
+wire [7:0] ALUControlD;
+wire ALUSrcAD;
+wire [1:0] ALUSrcBD;
 wire RegDstD;
+wire JumpD;
 wire BranchD;
 
 wire [5:0] Op;
@@ -25,8 +27,8 @@ wire [5:0] Funct;
 
 controller c(
     Op, Funct,
-    JumpD, RegWriteD, RegDstD, ALUSrcD, BranchD, MemWriteD, MemtoRegD,
-    ALUContrD
+    JumpD, RegWriteD, RegDstD, ALUSrcAD, ALUSrcBD, BranchD, MemWriteD, MemtoRegD,
+    ALUControlD
 );
 
 datapath dp(
@@ -38,13 +40,13 @@ datapath dp(
     RegWriteD,
     MemtoRegD,
     MemWriteD,
-    ALUContrD,
-    ALUSrcD,
+    ALUControlD,
+    ALUSrcAD,
+    ALUSrcBD,
     RegDstD,
     JumpD,
     BranchD,
     
-
     MemWriteM,
     ALUOutM,
     WriteDataM,
