@@ -13,7 +13,7 @@ module datapath(
     input  wire MemtoRegD,
     input  wire MemWriteD,
     input  wire [2:0] ALUControlD,
-    input  wire ALUSrcD,
+    input  wire [1:0] ALUSrcD,
     input  wire RegDstD,
     input  wire JumpD,
     input  wire BranchD,
@@ -58,7 +58,7 @@ wire RegWriteE;
 wire MemtoRegE;
 wire MemWriteE;
 wire [2:0] ALUControlE;
-wire ALUSrcE;
+wire [1:0] ALUSrcE;
 wire RegDstE;
 wire [1:0] PCSrcD;
 
@@ -127,6 +127,8 @@ eqcmp cmp(CmpA, CmpB, EqualD);
 
 //�����ָ֧���ַ
 signext se(InstD[15:0], SignImmD);
+zeroext ze(InstD[15:0], ZeroImmD);
+
 sl2 #(32)sl21(SignImmD, ExSignImmD);
 adder branchadder(PCPlus4D, ExSignImmD, PCBranchD);
 
@@ -136,7 +138,7 @@ assign PCJumpD = {InstD[31:28], ExJumpAddr};
 //----------------------
 
 //-----excute stage-----
-floprc  #(8)E1(clk, rst, FlushE,
+floprc  #(9)E1(clk, rst, FlushE,
     {RegWriteD,MemtoRegD,MemWriteD,ALUControlD,ALUSrcD,RegDstD},
     {RegWriteE,MemtoRegE,MemWriteE,ALUControlE,ALUSrcE,RegDstE});
 floprc #(32)E2(clk, rst, FlushE, DataAD, DataAE);
@@ -145,6 +147,9 @@ floprc  #(5)E4(clk, rst, FlushE, RsD, RsE);
 floprc  #(5)E5(clk, rst, FlushE, RtD, RtE);
 floprc  #(5)E6(clk, rst, FlushE, RdD, RdE);
 floprc #(32)E7(clk, rst, FlushE, SignImmD, SignImmE);
+
+floprc #(32)E8(clk, rst, FlushE, ZeroImmD, ZeroImmE);//这里是为了0位扩展
+
 //add shift inst oprand
 //floprc #(32)E8(clk, rst, FlushE, SaD, SaE);
 //---------------------
@@ -155,7 +160,10 @@ mux3 #(32) forwardbmux(DataBE, ResultW, ALUOutM, ForwardBE, WriteDataE);
 //add shift inst oprand
 //mux2 #(32) alusrcamux(RegValue, SaE, ,SrcAE); //lack control signal
 //---------------------
-mux2 #(32) alusrcbmux(WriteDataE, SignImmE, ALUSrcE, SrcBE);
+
+//mux2 #(32) alusrcbmux(WriteDataE, SignImmE, ALUSrcE, SrcBE);
+mux3 #(32) alusrcbmux(WriteDataE, SignImmE, ZeroImmE, ALUSrcE, SrcBE);//这里是改成了三选一
+
 
 alu alu(ALUControlE, SrcAE, SrcBE, ALUOutE);
 //----------------------
