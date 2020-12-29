@@ -51,7 +51,7 @@ always @(op) begin
         signals <= 8'b01110000;
     end
         default: begin
-        signals <= 8'b0000000;
+        signals <= 8'b00000000;
     end
     endcase
 end
