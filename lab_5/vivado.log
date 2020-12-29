@@ -26,3 +26,5 @@ add_files -norecurse C:/Users/Administrator/Desktop/littleExam/turbo-octo-comput
 update_compile_order -fileset sources_1
 add_files -norecurse C:/Users/Administrator/Desktop/littleExam/turbo-octo-computing-machine/lab_5/lab_5.srcs/sources_1/new/zeroext.v
 update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
