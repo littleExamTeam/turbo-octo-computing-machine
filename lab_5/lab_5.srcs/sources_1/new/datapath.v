@@ -12,7 +12,7 @@ module datapath(
     input  wire RegWriteD,
     input  wire MemtoRegD,
     input  wire MemWriteD,
-    input  wire [2:0] ALUControlD,
+    input  wire [7:0] ALUControlD,
     input  wire [1:0] ALUSrcD,
     input  wire RegDstD,
     input  wire JumpD,
@@ -57,7 +57,7 @@ wire StallD, FlushD;
 wire RegWriteE;
 wire MemtoRegE;
 wire MemWriteE;
-wire [2:0] ALUControlE;
+wire [7:0] ALUControlE;
 wire [1:0] ALUSrcE;
 wire RegDstE;
 wire [1:0] PCSrcD;
