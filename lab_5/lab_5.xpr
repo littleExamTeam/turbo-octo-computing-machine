@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="40" Path="D:/Verilog/turbo-octo-computing-machine/lab_5/lab_5.xpr">
+<Project Version="7" Minor="40" Path="C:/Users/Administrator/Desktop/littleExam/turbo-octo-computing-machine/lab_5/lab_5.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="03be9a2fdf514b98a3615ab709206c61"/>
