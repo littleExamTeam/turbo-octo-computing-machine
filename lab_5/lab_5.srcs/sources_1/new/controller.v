@@ -2,18 +2,20 @@
 `include "defines.vh"
 
 module main_dec(
-    input wire [5:0] op,
+    input wire [5:0] op,funct,
     output wire jump, regwrite, regdst, 
 
-    output wire [1:0] alusrc, //这里修改成两位是为了选择操作数，0位扩�??
+    output wire alusrcA,
+    output wire [1:0] alusrcB, //这里修改成两位是为了选择操作数，0位扩�???
+
     output wire branch, memwrite, memtoreg
 
 );
 
-reg [7:0] signals;
+reg [8:0] signals;
 
-//assign {jump, regwrite, regdst, alusrc[1:0], branch, memwrite, memtoreg} = signals;
-assign {regwrite, memtoreg, memwrite, {alusrc[1:1]}, {alusrc[0:0]}, regdst, jump, branch} = signals;
+//assign {jump, regwrite, regdst, alusrcB[1:0], branch, memwrite, memtoreg} = signals;
+assign {regwrite, memtoreg, memwrite, alusrcA ,{alusrcB[1:1]}, {alusrcB[0:0]}, regdst, jump, branch} = signals;
 //100  00
 // `define EXE_NOP			6'b000000
 // `define EXE_AND 		6'b100100
@@ -24,39 +26,27 @@ assign {regwrite, memtoreg, memwrite, {alusrc[1:1]}, {alusrc[0:0]}, regdst, jump
 // `define EXE_ORI			6'b001101
 // `define EXE_XORI		6'b001110
 // `define EXE_LUI			6'b001111
-always @(op) begin
+always @(*) begin
     case(op)
     //     `EXE_NOP: begin    //R-type
     //     signals <= 8'b011 000;
     //     aluop_reg <= 2'b10;
     // end
         6'b000000: begin    //lw
-        signals <= 8'b10000100;
+        case(funct)
+            `EXE_SLL:signals <= 9'b1_0_0_1_00_1_0_0;
+            `EXE_SRA:signals <= 9'b1_0_0_1_00_1_0_0;
+            `EXE_SRL:signals <= 9'b1_0_0_1_00_1_0_0;
+            default: signals <= 9'b1_0_0_0_00_1_0_0;
+            
+        endcase
+    
     end
-        `EXE_OR: begin    //sw
-        signals <= 8'b10000100;
-    end
-        `EXE_XOR: begin    //beq
-        signals <= 8'b10000100;
-    end
-        `EXE_NOR: begin    //addi
-        signals <= 8'b10000100;
-    end
-        `EXE_ANDI: begin    //j
-        signals <= 8'b10010000;
-    end
-        `EXE_XORI: begin    //j
-        signals <= 8'b10010000;
-    end
-        `EXE_ORI: begin    //j
-        signals <= 8'b10010000;
-    end
-        `EXE_LUI: begin    //j
-        signals <= 8'b10010000;
-    end
-        default: begin
-        signals <= 8'b00000000;
-    end
+        `EXE_ANDI:signals <= 9'b100010000;
+        `EXE_XORI:signals <= 9'b100010000;
+        `EXE_ORI:signals <= 9'b100010000;
+        `EXE_LUI:signals <= 9'b100010000;
+        default:signals <= 9'b000000000;
     endcase
 end
 
@@ -65,7 +55,8 @@ endmodule
 module controller(
     input wire [5:0] Op, Funct,
     output wire Jump, RegWrite, RegDst,
-    output wire [1:0] ALUSrc, 
+    output wire ALUSrcA, 
+    output wire [1:0] ALUSrcB, 
     output wire Branch, MemWrite, MemtoReg,
     output wire [7:0] ALUContr 
 );
@@ -73,10 +64,12 @@ module controller(
 
 main_dec main_dec(
     .op(Op),
+    .funct(Funct),
     .jump(Jump),
     .regwrite(RegWrite),
     .regdst(RegDst),
-    .alusrc(ALUSrc),
+    .alusrcA(ALUSrcA),
+    .alusrcB(ALUSrcB),
     .branch(Branch),
     .memwrite(MemWrite),
     .memtoreg(MemtoReg)

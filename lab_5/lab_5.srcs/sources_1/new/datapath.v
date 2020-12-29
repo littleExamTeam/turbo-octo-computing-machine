@@ -80,7 +80,6 @@ wire [31:0] SignImmE;
 //add logic inst oprand
 wire [31:0] ZeroImmE;
 //---------------------
-wire [31:0] ExSignImmE;
 wire [31:0] DataAE, DataBE;
 wire [31:0] SrcAE, SrcBE, ALUOutE;
 wire [31:0] WriteDataE;
@@ -181,7 +180,7 @@ floprc #(32)E9(clk, rst, FlushE, SaD, SaE);
 //---------------------
 
 mux2  #(5) regmux(RtE, RdE, RegDstE, WriteRegE);
-mux3 #(32) forwardamux(DataAE, ResultW, ALUOutM, ForwardAE, SrcAE);
+mux3 #(32) forwardamux(DataAE, ResultW, ALUOutM, ForwardAE, RegValue);
 mux3 #(32) forwardbmux(DataBE, ResultW, ALUOutM, ForwardBE, WriteDataE);
 //add shift inst oprand
 mux2 #(32) alusrcamux(RegValue, SaE, ALUSrcAE,SrcAE);
