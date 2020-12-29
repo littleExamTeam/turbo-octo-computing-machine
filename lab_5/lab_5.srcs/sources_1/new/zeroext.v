@@ -4,5 +4,5 @@ module zeroext(
 	output wire[31:0] y
     );
     
-	assign y = {{16{1'b0}},a};
+	assign y = {16'b0, a};
 endmodule
