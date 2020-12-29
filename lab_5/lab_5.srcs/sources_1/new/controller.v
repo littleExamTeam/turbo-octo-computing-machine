@@ -5,7 +5,7 @@ module main_dec(
     input wire [5:0] op,
     output wire jump, regwrite, regdst, 
 
-    output wire [1:0] alusrc, //这里修改成两位是为了选择操作数，0位扩�??
+    output wire [1:0] alusrc, //这里修改成两位是为了选择操作数，0位扩�??
     output wire branch, memwrite, memtoreg
 
 );

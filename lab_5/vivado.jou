@@ -2,19 +2,13 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Tue Dec 29 12:04:49 2020
-# Process ID: 4552
+# Start of session at: Tue Dec 29 15:33:15 2020
+# Process ID: 2620
 # Current directory: D:/Verilog/turbo-octo-computing-machine/lab_5
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4064 D:\Verilog\turbo-octo-computing-machine\lab_5\lab_5.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3804 D:\Verilog\turbo-octo-computing-machine\lab_5\lab_5.xpr
 # Log file: D:/Verilog/turbo-octo-computing-machine/lab_5/vivado.log
 # Journal file: D:/Verilog/turbo-octo-computing-machine/lab_5\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project D:/Verilog/turbo-octo-computing-machine/lab_5/lab_5.xpr
 update_compile_order -fileset sources_1
-launch_simulation
-source top_sim.tcl
-current_wave_config {Untitled 1}
-add_wave {{/top_sim/dut/mips/dp/alu}} 
-relaunch_sim
-close_sim
