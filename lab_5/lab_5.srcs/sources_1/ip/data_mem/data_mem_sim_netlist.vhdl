@@ -1,10 +1,10 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
--- Date        : Wed Nov  4 13:05:41 2020
+-- Date        : Tue Dec 29 09:52:48 2020
 -- Host        : LAPTOP-GLN1OLGI running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               d:/Verilog/lab_5/lab_5.srcs/sources_1/ip/data_mem/data_mem_sim_netlist.vhdl
+--               D:/Verilog/turbo-octo-computing-machine/lab_5/lab_5.srcs/sources_1/ip/data_mem/data_mem_sim_netlist.vhdl
 -- Design      : data_mem
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -463,7 +463,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity data_mem_blk_mem_gen_prim_wrapper is
+entity data_mem_blk_mem_gen_prim_wrapper_init is
   port (
     ram_douta : out STD_LOGIC_VECTOR ( 17 downto 0 );
     ena_0 : out STD_LOGIC;
@@ -474,10 +474,10 @@ entity data_mem_blk_mem_gen_prim_wrapper is
     ena : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of data_mem_blk_mem_gen_prim_wrapper : entity is "blk_mem_gen_prim_wrapper";
-end data_mem_blk_mem_gen_prim_wrapper;
+  attribute ORIG_REF_NAME of data_mem_blk_mem_gen_prim_wrapper_init : entity is "blk_mem_gen_prim_wrapper_init";
+end data_mem_blk_mem_gen_prim_wrapper_init;
 
-architecture STRUCTURE of data_mem_blk_mem_gen_prim_wrapper is
+architecture STRUCTURE of data_mem_blk_mem_gen_prim_wrapper_init is
   signal \^ena_0\ : STD_LOGIC;
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_DOBDO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_DOPBDOP_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -631,7 +631,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \data_mem_blk_mem_gen_prim_wrapper__parameterized0\ is
+entity \data_mem_blk_mem_gen_prim_wrapper_init__parameterized0\ is
   port (
     DOADO : out STD_LOGIC_VECTOR ( 15 downto 0 );
     DOBDO : out STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -642,10 +642,10 @@ entity \data_mem_blk_mem_gen_prim_wrapper__parameterized0\ is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \data_mem_blk_mem_gen_prim_wrapper__parameterized0\ : entity is "blk_mem_gen_prim_wrapper";
-end \data_mem_blk_mem_gen_prim_wrapper__parameterized0\;
+  attribute ORIG_REF_NAME of \data_mem_blk_mem_gen_prim_wrapper_init__parameterized0\ : entity is "blk_mem_gen_prim_wrapper_init";
+end \data_mem_blk_mem_gen_prim_wrapper_init__parameterized0\;
 
-architecture STRUCTURE of \data_mem_blk_mem_gen_prim_wrapper__parameterized0\ is
+architecture STRUCTURE of \data_mem_blk_mem_gen_prim_wrapper_init__parameterized0\ is
   signal \DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram_n_32\ : STD_LOGIC;
   signal \DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram_n_33\ : STD_LOGIC;
   signal \DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram_n_34\ : STD_LOGIC;
@@ -741,7 +741,7 @@ begin
       IS_RSTREGARSTREG_INVERTED => '0',
       IS_RSTREGB_INVERTED => '0',
       RAM_MODE => "TDP",
-      RDADDR_COLLISION_HWCONFIG => "DELAYED_WRITE",
+      RDADDR_COLLISION_HWCONFIG => "PERFORMANCE",
       READ_WIDTH_A => 18,
       READ_WIDTH_B => 18,
       RSTREG_PRIORITY_A => "REGCE",
@@ -791,7 +791,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity \data_mem_blk_mem_gen_prim_wrapper__parameterized1\ is
+entity \data_mem_blk_mem_gen_prim_wrapper_init__parameterized1\ is
   port (
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_0\ : out STD_LOGIC_VECTOR ( 13 downto 0 );
     clka : in STD_LOGIC;
@@ -801,10 +801,10 @@ entity \data_mem_blk_mem_gen_prim_wrapper__parameterized1\ is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of \data_mem_blk_mem_gen_prim_wrapper__parameterized1\ : entity is "blk_mem_gen_prim_wrapper";
-end \data_mem_blk_mem_gen_prim_wrapper__parameterized1\;
+  attribute ORIG_REF_NAME of \data_mem_blk_mem_gen_prim_wrapper_init__parameterized1\ : entity is "blk_mem_gen_prim_wrapper_init";
+end \data_mem_blk_mem_gen_prim_wrapper_init__parameterized1\;
 
-architecture STRUCTURE of \data_mem_blk_mem_gen_prim_wrapper__parameterized1\ is
+architecture STRUCTURE of \data_mem_blk_mem_gen_prim_wrapper_init__parameterized1\ is
   signal \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_0\ : STD_LOGIC;
   signal \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_32\ : STD_LOGIC;
   signal \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_33\ : STD_LOGIC;
@@ -970,7 +970,7 @@ end data_mem_blk_mem_gen_prim_width;
 
 architecture STRUCTURE of data_mem_blk_mem_gen_prim_width is
 begin
-\prim_noinit.ram\: entity work.data_mem_blk_mem_gen_prim_wrapper
+\prim_init.ram\: entity work.data_mem_blk_mem_gen_prim_wrapper_init
      port map (
       addra(10 downto 0) => addra(10 downto 0),
       clka => clka,
@@ -1001,7 +1001,7 @@ end \data_mem_blk_mem_gen_prim_width__parameterized0\;
 
 architecture STRUCTURE of \data_mem_blk_mem_gen_prim_width__parameterized0\ is
 begin
-\prim_noinit.ram\: entity work.\data_mem_blk_mem_gen_prim_wrapper__parameterized0\
+\prim_init.ram\: entity work.\data_mem_blk_mem_gen_prim_wrapper_init__parameterized0\
      port map (
       DOADO(15 downto 0) => DOADO(15 downto 0),
       DOBDO(15 downto 0) => DOBDO(15 downto 0),
@@ -1031,7 +1031,7 @@ end \data_mem_blk_mem_gen_prim_width__parameterized1\;
 
 architecture STRUCTURE of \data_mem_blk_mem_gen_prim_width__parameterized1\ is
 begin
-\prim_noinit.ram\: entity work.\data_mem_blk_mem_gen_prim_wrapper__parameterized1\
+\prim_init.ram\: entity work.\data_mem_blk_mem_gen_prim_wrapper_init__parameterized1\
      port map (
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_0\(13 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram\(13 downto 0),
       \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_1\ => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_0\,
@@ -1455,11 +1455,11 @@ entity data_mem_blk_mem_gen_v8_4_3 is
   attribute C_INIT_FILE : string;
   attribute C_INIT_FILE of data_mem_blk_mem_gen_v8_4_3 : entity is "data_mem.mem";
   attribute C_INIT_FILE_NAME : string;
-  attribute C_INIT_FILE_NAME of data_mem_blk_mem_gen_v8_4_3 : entity is "no_coe_file_loaded";
+  attribute C_INIT_FILE_NAME of data_mem_blk_mem_gen_v8_4_3 : entity is "data_mem.mif";
   attribute C_INTERFACE_TYPE : integer;
   attribute C_INTERFACE_TYPE of data_mem_blk_mem_gen_v8_4_3 : entity is 0;
   attribute C_LOAD_INIT_FILE : integer;
-  attribute C_LOAD_INIT_FILE of data_mem_blk_mem_gen_v8_4_3 : entity is 0;
+  attribute C_LOAD_INIT_FILE of data_mem_blk_mem_gen_v8_4_3 : entity is 1;
   attribute C_MEM_TYPE : integer;
   attribute C_MEM_TYPE of data_mem_blk_mem_gen_v8_4_3 : entity is 0;
   attribute C_MUX_PIPELINE_STAGES : integer;
@@ -1782,11 +1782,11 @@ architecture STRUCTURE of data_mem is
   attribute C_INIT_FILE : string;
   attribute C_INIT_FILE of U0 : label is "data_mem.mem";
   attribute C_INIT_FILE_NAME : string;
-  attribute C_INIT_FILE_NAME of U0 : label is "no_coe_file_loaded";
+  attribute C_INIT_FILE_NAME of U0 : label is "data_mem.mif";
   attribute C_INTERFACE_TYPE : integer;
   attribute C_INTERFACE_TYPE of U0 : label is 0;
   attribute C_LOAD_INIT_FILE : integer;
-  attribute C_LOAD_INIT_FILE of U0 : label is 0;
+  attribute C_LOAD_INIT_FILE of U0 : label is 1;
   attribute C_MEM_TYPE : integer;
   attribute C_MEM_TYPE of U0 : label is 0;
   attribute C_MUX_PIPELINE_STAGES : integer;

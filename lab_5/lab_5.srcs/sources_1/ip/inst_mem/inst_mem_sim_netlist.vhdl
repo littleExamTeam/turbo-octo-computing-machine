@@ -1,10 +1,10 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
--- Date        : Sat Nov  7 18:28:30 2020
+-- Date        : Tue Dec 29 09:31:33 2020
 -- Host        : LAPTOP-GLN1OLGI running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               D:/Verilog/lab_5/lab_5.srcs/sources_1/ip/inst_mem/inst_mem_sim_netlist.vhdl
+--               D:/Verilog/turbo-octo-computing-machine/lab_5/lab_5.srcs/sources_1/ip/inst_mem/inst_mem_sim_netlist.vhdl
 -- Design      : inst_mem
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -46,9 +46,9 @@ begin
       INITP_05 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_06 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_07 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_00 => X"0064202A10A7000C00A428200064282400E220252067FFF72003000C20020005",
-      INIT_01 => X"8C020050AC67004400E238220085382000E2202A200500000000000010800002",
-      INIT_02 => X"00000000000000000000000000000000AC020054200200010000000008000013",
+      INIT_00 => X"008108263824FF0000610824302300FE0022082534221100342101013C010101",
+      INIT_01 => X"0000000000000000000000000000001E00000000000000000000000000810827",
+      INIT_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_04 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_05 => X"0000000000000000000000000000000000000000000000000000000000000000",
