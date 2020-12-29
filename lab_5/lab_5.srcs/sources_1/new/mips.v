@@ -15,7 +15,7 @@ wire JumpD;
 wire RegWriteD;
 wire MemtoRegD;
 wire MemWriteD;
-wire [2:0] ALUContrD;
+wire [7:0] ALUContrD;
 wire [1:0] ALUSrcD;
 wire RegDstD;
 wire BranchD;

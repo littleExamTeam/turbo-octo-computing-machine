@@ -4,17 +4,19 @@
 module main_dec(
     input wire [5:0] op,
     output wire jump, regwrite, regdst, 
+<<<<<<< HEAD
     output wire [1:0] alusrc, //这里修改成两位是为了选择操作数，0位扩�?
     output wire branch, memwrite, memtoreg,
     output wire [1:0] aluop
+=======
+    output wire [1:0] alusrc, //这里修改成两位是为了选择操作数，0位扩展
+    output wire branch, memwrite, memtoreg
+>>>>>>> dcde3168772239c4d9e754b8dfa6f02f0c4fa50a
 );
 
 reg [7:0] signals;
-reg [1:0] aluop_reg;
 
 assign {jump, regwrite, regdst, alusrc[1:0], branch, memwrite, memtoreg} = signals;
-//logic 011 000
-assign aluop = aluop_reg;
 // `define EXE_NOP			6'b000000
 // `define EXE_AND 		6'b100100
 // `define EXE_OR 			6'b100101
@@ -32,39 +34,30 @@ always @(op) begin
     // end
         `EXE_AND: begin    //lw
         signals <= 8'b01100000;
-        aluop_reg <= 2'b00;
     end
         `EXE_OR: begin    //sw
         signals <= 8'b01100000;
-        aluop_reg <= 2'b00;
     end
         `EXE_XOR: begin    //beq
         signals <= 8'b01100000;
-        aluop_reg <= 2'b01;
     end
         `EXE_NOR: begin    //addi
         signals <= 8'b01100000;
-        aluop_reg <= 2'b00;
     end
         `EXE_ANDI: begin    //j
         signals <= 8'b01110000;
-        aluop_reg <= 2'b00;
     end
         `EXE_XORI: begin    //j
         signals <= 8'b01110000;
-        aluop_reg <= 2'b00;
     end
         `EXE_ORI: begin    //j
         signals <= 8'b01110000;
-        aluop_reg <= 2'b00;
     end
         `EXE_LUI: begin    //j
         signals <= 8'b01110000;
-        aluop_reg <= 2'b00;
     end
         default: begin
         signals <= 8'b0000000;
-        aluop_reg <= 2'b00;
     end
     endcase
 end
@@ -110,7 +103,6 @@ module controller(
     output wire [7:0] ALUContr 
 );
 
-wire [1:0] aluop;
 
 main_dec main_dec(
     .op(Op),
@@ -120,13 +112,16 @@ main_dec main_dec(
     .alusrc(ALUSrc),
     .branch(Branch),
     .memwrite(MemWrite),
-    .memtoreg(MemtoReg),
-    .aluop(aluop)
+    .memtoreg(MemtoReg)
 );
 
 aludec aludec(
     .Funct(Funct),
+<<<<<<< HEAD
     .Op(aluop),
+=======
+    .Op(Op),
+>>>>>>> dcde3168772239c4d9e754b8dfa6f02f0c4fa50a
     .ALUControl(ALUContr)
 );
 
