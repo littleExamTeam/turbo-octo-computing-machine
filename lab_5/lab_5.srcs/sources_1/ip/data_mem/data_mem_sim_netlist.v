@@ -1,10 +1,10 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-// Date        : Wed Nov  4 13:05:41 2020
+// Date        : Tue Dec 29 09:52:48 2020
 // Host        : LAPTOP-GLN1OLGI running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
-//               d:/Verilog/lab_5/lab_5.srcs/sources_1/ip/data_mem/data_mem_sim_netlist.v
+//               D:/Verilog/turbo-octo-computing-machine/lab_5/lab_5.srcs/sources_1/ip/data_mem/data_mem_sim_netlist.v
 // Design      : data_mem
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -97,9 +97,9 @@ module data_mem
   (* C_INITA_VAL = "0" *) 
   (* C_INITB_VAL = "0" *) 
   (* C_INIT_FILE = "data_mem.mem" *) 
-  (* C_INIT_FILE_NAME = "no_coe_file_loaded" *) 
+  (* C_INIT_FILE_NAME = "data_mem.mif" *) 
   (* C_INTERFACE_TYPE = "0" *) 
-  (* C_LOAD_INIT_FILE = "0" *) 
+  (* C_LOAD_INIT_FILE = "1" *) 
   (* C_MEM_TYPE = "0" *) 
   (* C_MUX_PIPELINE_STAGES = "0" *) 
   (* C_PRIM_TYPE = "1" *) 
@@ -674,7 +674,7 @@ module data_mem_blk_mem_gen_prim_width
   wire [17:0]ram_douta;
   wire [0:0]wea;
 
-  data_mem_blk_mem_gen_prim_wrapper \prim_noinit.ram 
+  data_mem_blk_mem_gen_prim_wrapper_init \prim_init.ram 
        (.addra(addra),
         .clka(clka),
         .dina(dina),
@@ -709,7 +709,7 @@ module data_mem_blk_mem_gen_prim_width__parameterized0
   wire [0:0]ena_array;
   wire [0:0]wea;
 
-  data_mem_blk_mem_gen_prim_wrapper__parameterized0 \prim_noinit.ram 
+  data_mem_blk_mem_gen_prim_wrapper_init__parameterized0 \prim_init.ram 
        (.DOADO(DOADO),
         .DOBDO(DOBDO),
         .addra(addra),
@@ -741,7 +741,7 @@ module data_mem_blk_mem_gen_prim_width__parameterized1
   wire [13:0]dina;
   wire [0:0]wea;
 
-  data_mem_blk_mem_gen_prim_wrapper__parameterized1 \prim_noinit.ram 
+  data_mem_blk_mem_gen_prim_wrapper_init__parameterized1 \prim_init.ram 
        (.\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_0 (\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram ),
         .\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_1 (\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_0 ),
         .addra(addra),
@@ -750,8 +750,8 @@ module data_mem_blk_mem_gen_prim_width__parameterized1
         .wea(wea));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module data_mem_blk_mem_gen_prim_wrapper
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module data_mem_blk_mem_gen_prim_wrapper_init
    (ram_douta,
     ena_0,
     clka,
@@ -909,8 +909,8 @@ module data_mem_blk_mem_gen_prim_wrapper
         .O(ena_0));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module data_mem_blk_mem_gen_prim_wrapper__parameterized0
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module data_mem_blk_mem_gen_prim_wrapper_init__parameterized0
    (DOADO,
     DOBDO,
     clka,
@@ -1026,7 +1026,7 @@ module data_mem_blk_mem_gen_prim_wrapper__parameterized0
     .IS_RSTREGARSTREG_INVERTED(1'b0),
     .IS_RSTREGB_INVERTED(1'b0),
     .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
+    .RDADDR_COLLISION_HWCONFIG("PERFORMANCE"),
     .READ_WIDTH_A(18),
     .READ_WIDTH_B(18),
     .RSTREG_PRIORITY_A("REGCE"),
@@ -1064,8 +1064,8 @@ module data_mem_blk_mem_gen_prim_wrapper__parameterized0
         .WEBWE({1'b0,1'b0,wea,wea}));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module data_mem_blk_mem_gen_prim_wrapper__parameterized1
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module data_mem_blk_mem_gen_prim_wrapper_init__parameterized1
    (\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_0 ,
     clka,
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_1 ,
@@ -1263,7 +1263,7 @@ endmodule
 (* C_HAS_REGCEA = "0" *) (* C_HAS_REGCEB = "0" *) (* C_HAS_RSTA = "0" *) 
 (* C_HAS_RSTB = "0" *) (* C_HAS_SOFTECC_INPUT_REGS_A = "0" *) (* C_HAS_SOFTECC_OUTPUT_REGS_B = "0" *) 
 (* C_INITA_VAL = "0" *) (* C_INITB_VAL = "0" *) (* C_INIT_FILE = "data_mem.mem" *) 
-(* C_INIT_FILE_NAME = "no_coe_file_loaded" *) (* C_INTERFACE_TYPE = "0" *) (* C_LOAD_INIT_FILE = "0" *) 
+(* C_INIT_FILE_NAME = "data_mem.mif" *) (* C_INTERFACE_TYPE = "0" *) (* C_LOAD_INIT_FILE = "1" *) 
 (* C_MEM_TYPE = "0" *) (* C_MUX_PIPELINE_STAGES = "0" *) (* C_PRIM_TYPE = "1" *) 
 (* C_READ_DEPTH_A = "1048" *) (* C_READ_DEPTH_B = "1048" *) (* C_READ_LATENCY_A = "1" *) 
 (* C_READ_LATENCY_B = "1" *) (* C_READ_WIDTH_A = "32" *) (* C_READ_WIDTH_B = "32" *) 

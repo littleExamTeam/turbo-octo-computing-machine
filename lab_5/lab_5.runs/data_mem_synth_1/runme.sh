@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/Verilog/lab_5/lab_5.runs/data_mem_synth_1'
+HD_PWD='D:/Verilog/turbo-octo-computing-machine/lab_5/lab_5.runs/data_mem_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

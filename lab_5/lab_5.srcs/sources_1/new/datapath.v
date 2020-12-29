@@ -122,7 +122,7 @@ flopenrc #(32)D2(clk, rst, ~StallD, FlushD, PCPlus4F, PCPlus4D);
 
 regfile rf(clk, RegWriteW, RsD, RtD, WriteRegW, ResultW, DataAD, DataBD);
 
-//�ж��Ƿ��֧��ת
+//�ж��Ƿ��֧���?
 mux2 #(32)DAmux(DataAD, ALUOutM, ForwardAD, CmpA);
 mux2 #(32)DBmux(DataBD, ALUOutM, ForwardBD, CmpB);
 eqcmp cmp(CmpA, CmpB, EqualD);
@@ -134,13 +134,13 @@ zeroext ze(InstD[15:0], ZeroImmD);
 sl2 #(32)sl21(SignImmD, ExSignImmD);
 adder branchadder(PCPlus4D, ExSignImmD, PCBranchD);
 
-//��ȡֱ����תָ���ַ
+//��ȡֱ����תָ����?
 sl2 #(26)sl22(InstD[25:0], ExJumpAddr);
 assign PCJumpD = {InstD[31:28], ExJumpAddr};
 //----------------------
 
 //-----excute stage-----
-floprc  #(9)E1(clk, rst, FlushE,
+floprc  #(14)E1(clk, rst, FlushE,
     {RegWriteD,MemtoRegD,MemWriteD,ALUControlD,ALUSrcD,RegDstD},
     {RegWriteE,MemtoRegE,MemWriteE,ALUControlE,ALUSrcE,RegDstE});
 floprc #(32)E2(clk, rst, FlushE, DataAD, DataAE);
@@ -150,7 +150,7 @@ floprc  #(5)E5(clk, rst, FlushE, RtD, RtE);
 floprc  #(5)E6(clk, rst, FlushE, RdD, RdE);
 floprc #(32)E7(clk, rst, FlushE, SignImmD, SignImmE);
 
-floprc #(32)E8(clk, rst, FlushE, ZeroImmD, ZeroImmE);//这里是为了0位扩展
+floprc #(32)E8(clk, rst, FlushE, ZeroImmD, ZeroImmE);//这里是为�?0位扩�?
 
 //add shift inst oprand
 //floprc #(32)E8(clk, rst, FlushE, SaD, SaE);
@@ -164,7 +164,7 @@ mux3 #(32) forwardbmux(DataBE, ResultW, ALUOutM, ForwardBE, WriteDataE);
 //---------------------
 
 //mux2 #(32) alusrcbmux(WriteDataE, SignImmE, ALUSrcE, SrcBE);
-mux3 #(32) alusrcbmux(WriteDataE, SignImmE, ZeroImmE, ALUSrcE, SrcBE);//这里是改成了三选一
+mux3 #(32) alusrcbmux(WriteDataE, SignImmE, ZeroImmE, ALUSrcE, SrcBE);//这里是改成了三�?�一
 
 
 alu alu(ALUControlE, SrcAE, SrcBE, ALUOutE);
