@@ -11,3 +11,4 @@
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/Administrator/Desktop/littleExam/turbo-octo-computing-machine/lab_5/lab_5.xpr
+update_compile_order -fileset sources_1

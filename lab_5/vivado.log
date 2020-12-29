@@ -17,3 +17,4 @@ INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xlinx/Vivado/2019.1/data/ip'.
 open_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:05 . Memory (MB): peak = 744.500 ; gain = 111.023
+update_compile_order -fileset sources_1
