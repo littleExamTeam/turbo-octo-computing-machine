@@ -11,7 +11,9 @@ module datapath(
     output wire [5:0] Op,
     output wire [5:0] Funct,
     input  wire RegWriteD,
-    input  wire MemtoRegD,
+    //change for datamove inst
+    input  wire [1:0] MemtoRegD,
+    //------------------------
     input  wire MemWriteD,
     input  wire [7:0] ALUControlD,
     //add shift inst oprand
@@ -23,6 +25,10 @@ module datapath(
     input  wire RegDstD,
     input  wire JumpD,
     input  wire BranchD,
+    //add datamove inst oprand
+    input  wire HIWrite,
+    input  wire LOWrite, 
+    //------------------------
     //-----------------------------------------------
 
     //-----mem stage---------------------------------
@@ -53,6 +59,13 @@ wire [31:0] ExSignImmD;
 //add shift inst oprand
 wire [31:0] SaD;
 //---------------------
+//add datamove inst oprand
+wire HILOwe;
+wire [31:0] HIIn;
+wire [31:0] LOIn;
+wire [31:0] HIDataD;
+wire [31:0] LODataD;
+//------------------------
 wire [27:0] ExJumpAddr;
 wire [31:0] DataAD, DataBD;
 wire [31:0] CmpA, CmpB;
@@ -87,6 +100,10 @@ wire [31:0] WriteDataE;
 wire [31:0] RegValue;
 wire [31:0] SaE;
 //---------------------
+//add datamove inst oprand
+wire [31:0] HIDataE;
+wire [31:0] LODataE;
+//------------------------
 wire  [4:0] RsE, RtE, RdE;
 wire  [4:0] WriteRegE;
 
@@ -100,6 +117,10 @@ wire RegWriteM;
 wire MemtoRegM;
 
 wire [4:0] WriteRegM; 
+//add datamove inst oprand
+wire [31:0] HIDataM;
+wire [31:0] LODataM;
+//------------------------
 //----------------------------------------------------------
 
 
@@ -111,6 +132,10 @@ wire [31:0] ReadDataW;
 wire [31:0] ALUOutW;
 wire [31:0] ResultW;
 wire  [4:0] WriteRegW;
+//add datamove inst oprand
+wire [31:0] HIDataW;
+wire [31:0] LODataW;
+//------------------------
 //----------------------------------------------------------
 
 
@@ -134,6 +159,9 @@ assign Funct = InstD[5:0];
 //add shift inst oprand
 assign SaD = {27'b0, InstD[10:6]};
 //---------------------
+//add datamove inst oprand
+assign HILOwe = HIWrite | LOWrite;
+//------------------------
 
 assign PCSrcD[0:0] = BranchD & EqualD;
 assign PCSrcD[1:1] = JumpD;
@@ -145,6 +173,12 @@ flopenrc #(32)D2(clk, rst, ~StallD, FlushD, PCPlus4F, PCPlus4D);
 
 regfile rf(clk, RegWriteW, RsD, RtD, WriteRegW, ResultW, DataAD, DataBD);
 
+//add movedata inst oprand
+mux2 #(32)HIsel(ResultW ,HIDataW, HIWrite, HIIn);
+mux2 #(32)LOsel(ResultW ,LODataW, LOWrite, LOIn);
+
+hiloreg hilo(clk, rst, HILOwe, HIIn, LOIn, HIDataD, LODataD);
+//------------------------
 mux2 #(32)DAmux(DataAD, ALUOutM, ForwardAD, CmpA);
 mux2 #(32)DBmux(DataBD, ALUOutM, ForwardBD, CmpB);
 eqcmp cmp(CmpA, CmpB, EqualD);
@@ -178,6 +212,10 @@ floprc #(32)E8(clk, rst, FlushE, ZeroImmD, ZeroImmE);
 //add shift inst oprand
 floprc #(32)E9(clk, rst, FlushE, SaD, SaE);
 //---------------------
+//add datamove inst oprand
+floprc #(32)E10(clk, rst, FlushE, HIDataD, HIDataE);
+floprc #(32)E11(clk, rst, FlushE, LODataD, LODataE);
+//------------------------
 
 mux2  #(5) regmux(RtE, RdE, RegDstE, WriteRegE);
 mux3 #(32) forwardamux(DataAE, ResultW, ALUOutM, ForwardAE, RegValue);
@@ -200,6 +238,10 @@ flopr  #(3)M1(clk, rst,
 flopr #(32)M2(clk, rst, ALUOutE, ALUOutM);
 flopr #(32)M3(clk, rst, WriteDataE, WriteDataM);
 flopr  #(5)M4(clk, rst, WriteRegE, WriteRegM);
+//add datamove inst oprand
+flopr #(32)M5(clk, rst, HIDataE, HIDataM);
+flopr #(32)M6(clk, rst, LODataE, LODataM);
+//------------------------
 //------------------------------------------------------------
 
 
@@ -209,8 +251,13 @@ flopr  #(2)W1(clk, rst,
 flopr #(32)W2(clk, rst, ReadDataM, ReadDataW);
 flopr #(32)W3(clk, rst, ALUOutM, ALUOutW);
 flopr  #(5)W4(clk, rst, WriteRegM, WriteRegW);
-
-mux2 #(32)resultmux(ALUOutW, ReadDataW, MemtoRegW, ResultW);
+//add datamove inst oprand
+floprc #(32)W5(clk, rst, HIDataM, HIDataW);
+floprc #(32)W6(clk, rst, LODataM, LODataW);
+//------------------------
+//change for datamove inst oprand
+mux4 #(32)resultmux(ALUOutW, LODataW, HIDataW, ReadDataW, MemtoRegW, ResultW);
+//-------------------------------
 //------------------------------------------------------------
 
 
