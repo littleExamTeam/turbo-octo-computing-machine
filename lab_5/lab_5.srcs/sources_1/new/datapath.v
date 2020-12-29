@@ -37,6 +37,7 @@ wire [31:0] PCPlus4D;
 wire [31:0] PCBranchD;
 wire [31:0] PCJumpD;
 wire [31:0] SignImmD;
+wire [31:0] ZeroImmD;
 wire [31:0] ExSignImmD;
 //add shift inst oprand
 //wire [31:0] SaD;
@@ -63,6 +64,7 @@ wire RegDstE;
 wire [1:0] PCSrcD;
 
 wire [31:0] SignImmE;
+wire [31:0] ZeroImmE;
 wire [31:0] ExSignImmE;
 wire [31:0] DataAE, DataBE;
 wire [31:0] SrcAE, SrcBE, ALUOutE;
